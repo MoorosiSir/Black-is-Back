@@ -128,7 +128,7 @@ document.querySelector('.scroll-indicator').addEventListener('click', () => {
         if (e.key === 'ArrowLeft') showPrev();
     });
 
-    // 👉 Add Mobile Swipe Support
+    //Add Mobile Swipe Support
     let startX = 0;
     let endX = 0;
 
