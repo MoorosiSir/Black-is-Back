@@ -1,171 +1,58 @@
-console.log("✅ main.js is connected!");
-
-// Floating particles
-const particlesContainer = document.getElementById('particles');
-for (let i = 0; i < 50; i++) {
-    const particle = document.createElement('div');
-    particle.className = 'particle';
-    particle.style.left = Math.random() * 100 + '%';
-    particle.style.animationDelay = Math.random() * 20 + 's';
-    particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
-    particlesContainer.appendChild(particle);
+/* ── Mobile drawer ── */
+function toggleDrawer() {
+  document.getElementById('burger').classList.toggle('open');
+  document.getElementById('mobileDrawer').classList.toggle('open');
+}
+function closeDrawer() {
+  document.getElementById('burger').classList.remove('open');
+  document.getElementById('mobileDrawer').classList.remove('open');
 }
 
-// Mobile menu toggle
-const menuToggle = document.getElementById('menuToggle');
-const navLinks = document.getElementById('navLinks');
-
-menuToggle.addEventListener('click', () => {
-    menuToggle.classList.toggle('active');
-    navLinks.classList.toggle('mobile-active');
-});
-
-// Close mobile menu when clicking a link
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        menuToggle.classList.remove('active');
-        navLinks.classList.remove('mobile-active');
-    });
-});
-
-// Smooth scroll for scroll indicator
-document.querySelector('.scroll-indicator').addEventListener('click', () => {
-    window.scrollTo({
-        top: window.innerHeight,
-        behavior: 'smooth'
-    });
-});
-
-// Gallery Lightbox with Navigation + Mobile Swipe
-(function() {
-    console.log("🎨 Gallery script initializing...");
-
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightboxImg');
-    const closeLightbox = document.getElementById('closeLightbox');
-    const prevBtn = document.getElementById('prevImage');
-    const nextBtn = document.getElementById('nextImage');
-    const counter = document.getElementById('imageCounter');
-    const galleryItems = document.querySelectorAll('.gallery-item-new img');
-
-    let currentIndex = 0;
-    const totalImages = galleryItems.length;
-
-    if (!lightbox || !lightboxImg || !closeLightbox) {
-        console.error("❌ Lightbox elements missing!");
-        return;
-    }
-
-    console.log(`✅ Found ${totalImages} gallery images`);
-
-    function openLightbox(index) {
-        currentIndex = index;
-        const imgSrc = galleryItems[index].src;
-        const imgAlt = galleryItems[index].alt;
-        
-        lightboxImg.src = imgSrc;
-        lightboxImg.alt = imgAlt;
-        lightbox.classList.add('show');
-        updateCounter();
-        document.body.style.overflow = 'hidden';
-        
-        console.log(`🖼️ Opened image ${index + 1}/${totalImages}`);
-    }
-
-    function closeLightboxFn() {
-        lightbox.classList.remove('show');
-        document.body.style.overflow = '';
-        setTimeout(() => {
-            lightboxImg.src = '';
-        }, 300);
-        console.log("❌ Lightbox closed");
-    }
-
-    function showNext() {
-        currentIndex = (currentIndex + 1) % totalImages;
-        openLightbox(currentIndex);
-    }
-
-    function showPrev() {
-        currentIndex = (currentIndex - 1 + totalImages) % totalImages;
-        openLightbox(currentIndex);
-    }
-
-    function updateCounter() {
-        counter.textContent = `${currentIndex + 1} / ${totalImages}`;
-    }
-
-    galleryItems.forEach((img, index) => {
-        img.parentElement.addEventListener('click', (e) => {
-            e.preventDefault();
-            openLightbox(index);
-        });
-    });
-
-    closeLightbox.addEventListener('click', closeLightboxFn);
-
-    nextBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        showNext();
-    });
-
-    prevBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        showPrev();
-    });
-
-    lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) {
-            closeLightboxFn();
-        }
-    });
-
-    document.addEventListener('keydown', (e) => {
-        if (!lightbox.classList.contains('show')) return;
-        
-        if (e.key === 'Escape') closeLightboxFn();
-        if (e.key === 'ArrowRight') showNext();
-        if (e.key === 'ArrowLeft') showPrev();
-    });
-
-    //Add Mobile Swipe Support
-    let startX = 0;
-    let endX = 0;
-
-    lightbox.addEventListener('touchstart', (e) => {
-        startX = e.touches[0].clientX;
-    });
-
-    lightbox.addEventListener('touchmove', (e) => {
-        endX = e.touches[0].clientX;
-    });
-
-    lightbox.addEventListener('touchend', () => {
-        const diff = startX - endX;
-        if (Math.abs(diff) > 50) { // minimum swipe distance
-            if (diff > 0) {
-                showNext(); // swipe left
-            } else {
-                showPrev(); // swipe right
-            }
-        }
-        startX = 0;
-        endX = 0;
-    });
-
-    console.log("✅ Gallery lightbox ready with mobile swipe!");
+/* ── Active nav link (desktop + mobile) ── */
+(function markActive() {
+  const path = location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('[data-nav]').forEach(a => {
+    if (a.getAttribute('data-nav') === path) a.classList.add('active');
+  });
 })();
 
-// Smooth scrolling for all anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');
-        if (href !== '#' && document.querySelector(href)) {
-            e.preventDefault();
-            document.querySelector(href).scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
+/* ── Reveal on scroll ── */
+(function reveal() {
+  const items = document.querySelectorAll('.reveal');
+  if (!items.length) return;
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: .12 });
+  items.forEach(el => obs.observe(el));
+})();
+
+/* ── FAQ accordion ── */
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  const open = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(f => f.classList.remove('open'));
+  if (!open) item.classList.add('open');
+}
+
+/* ── Gallery filter ── */
+function filterGallery(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    item.style.display = (cat === 'all' || item.dataset.cat === cat) ? '' : 'none';
+  });
+}
+
+/* ── Contact form -> WhatsApp ── */
+function handleFormSubmit(e) {
+  e.preventDefault();
+  const f = e.target;
+  const first = f.querySelector('[name=first]').value;
+  const last = f.querySelector('[name=last]').value;
+  const phone = f.querySelector('[name=phone]').value;
+  const service = f.querySelector('[name=service]').value;
+  const details = f.querySelector('[name=details]').value;
+  const msg = encodeURIComponent(`Hi, I'd like a free quote!\n\nName: ${first} ${last}\nPhone: ${phone}\nService: ${service}\nDetails: ${details}`);
+  document.getElementById('formSuccess').style.display = 'block';
+  setTimeout(() => window.open(`https://wa.me/27636377014?text=${msg}`, '_blank'), 700);
+}

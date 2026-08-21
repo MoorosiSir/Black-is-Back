@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gallery — Black Is Back Projects</title>
+<meta name="description" content="Browse recent ceiling, tiling, electrical and carpentry projects completed across Johannesburg and Gauteng." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="logo"><span class="dot"></span>BLACK IS <em>BACK</em></a>
+    <nav class="nav-links">
+      <a href="index.html" data-nav="index.html">Home</a>
+      <a href="services.html" data-nav="services.html">Services</a>
+      <a href="gallery.html" data-nav="gallery.html">Gallery</a>
+      <a href="about.html" data-nav="about.html">About</a>
+      <a href="reviews.html" data-nav="reviews.html">Reviews</a>
+      <a href="referral.html" data-nav="referral.html">Referral</a>
+      <a href="contact.html" data-nav="contact.html">Contact</a>
+    </nav>
+    <a href="https://wa.me/27636377014?text=Hi%2C%20I%27d%20like%20a%20free%20quote" class="btn btn-primary nav-cta-desktop" target="_blank">Free Quote</a>
+    <button class="burger" id="burger" onclick="toggleDrawer()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mobile-drawer" id="mobileDrawer">
+  <nav>
+    <a href="index.html" data-nav="index.html"><span>Home</span><span class="mark">01</span></a>
+    <a href="services.html" data-nav="services.html"><span>Services</span><span class="mark">02</span></a>
+    <a href="gallery.html" data-nav="gallery.html"><span>Gallery</span><span class="mark">03</span></a>
+    <a href="about.html" data-nav="about.html"><span>About</span><span class="mark">04</span></a>
+    <a href="reviews.html" data-nav="reviews.html"><span>Reviews</span><span class="mark">05</span></a>
+    <a href="referral.html" data-nav="referral.html"><span>Referral</span><span class="mark">06</span></a>
+    <a href="contact.html" data-nav="contact.html"><span>Contact</span><span class="mark">07</span></a>
+    <a href="https://wa.me/27636377014?text=Hi%2C%20I%27d%20like%20a%20free%20quote" class="btn btn-primary btn-block drawer-cta" target="_blank"><i class="fab fa-whatsapp"></i> Get Free Quote</a>
+    <div class="drawer-contact">
+      <a href="tel:+27636377014"><i class="fas fa-phone"></i> 063 637 7014</a>
+      <a href="https://wa.me/27636377014" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+    </div>
+  </nav>
+</div>
+
+<section class="page-hero band">
+  <div class="wrap">
+    <div class="eyebrow reveal"><span>Recent Work</span></div>
+    <h1 class="h-display reveal">EXCELLENCE<br><em>IN ACTION</em></h1>
+    <p class="lede-lg reveal" style="margin-top:1rem">A look at real projects across Johannesburg and Gauteng. Filter by trade to see work closest to yours.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:1rem">
+  <div class="wrap">
+    <div class="filter-row reveal">
+      <button class="filter-btn active" onclick="filterGallery('all', this)">All Work</button>
+      <button class="filter-btn" onclick="filterGallery('ceiling', this)">Ceilings</button>
+      <button class="filter-btn" onclick="filterGallery('tiling', this)">Tiling</button>
+      <button class="filter-btn" onclick="filterGallery('electrical', this)">Electrical</button>
+      <button class="filter-btn" onclick="filterGallery('carpentry', this)">Carpentry</button>
+    </div>
+
+    <div class="gallery-grid reveal">
+      <div class="gallery-item" data-cat="ceiling"><i class="fas fa-image"></i><span class="cat-label">CEILING PROJECT</span><span class="job-label">Gypsum Ceiling — Kempton Park</span></div>
+      <div class="gallery-item" data-cat="tiling"><i class="fas fa-image"></i><span class="cat-label">TILING PROJECT</span><span class="job-label">Bathroom Tiling — Centurion</span></div>
+      <div class="gallery-item" data-cat="electrical"><i class="fas fa-image"></i><span class="cat-label">ELECTRICAL PROJECT</span><span class="job-label">DB Board Upgrade — Sandton</span></div>
+      <div class="gallery-item" data-cat="carpentry"><i class="fas fa-image"></i><span class="cat-label">CARPENTRY PROJECT</span><span class="job-label">Kitchen Units — Roodepoort</span></div>
+      <div class="gallery-item" data-cat="ceiling"><i class="fas fa-image"></i><span class="cat-label">CEILING PROJECT</span><span class="job-label">PVC Ceiling — Midrand</span></div>
+      <div class="gallery-item" data-cat="tiling"><i class="fas fa-image"></i><span class="cat-label">TILING PROJECT</span><span class="job-label">Outdoor Paving — Centurion</span></div>
+      <div class="gallery-item" data-cat="carpentry"><i class="fas fa-image"></i><span class="cat-label">CARPENTRY PROJECT</span><span class="job-label">TV Feature Wall — Soweto</span></div>
+      <div class="gallery-item" data-cat="electrical"><i class="fas fa-image"></i><span class="cat-label">ELECTRICAL PROJECT</span><span class="job-label">Lighting Install — Pretoria</span></div>
+      <div class="gallery-item" data-cat="ceiling"><i class="fas fa-image"></i><span class="cat-label">CEILING PROJECT</span><span class="job-label">Suspended Ceiling — Sandton</span></div>
+    </div>
+    <p class="mark" style="text-align:center;margin-top:2rem;color:var(--muted)">Placeholder tiles — swap each &lt;div class="gallery-item"&gt; for an &lt;img&gt; of the real project photo.</p>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="wrap">
+    <h2 class="h-section">YOUR PROJECT<br>COULD BE NEXT</h2>
+    <a href="https://wa.me/27636377014?text=Hi%2C%20I%27d%20like%20a%20free%20quote" class="btn btn-dark" target="_blank"><i class="fab fa-whatsapp"></i> Get Free Quote</a>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-cols">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><span class="dot"></span>BLACK IS <em>BACK</em></a>
+        <p>Premium renovation services across Johannesburg and Gauteng. Ceilings, tiling, electrical, carpentry — every project, measured true.</p>
+        <div class="social-row">
+          <a href="https://www.facebook.com/share/17CYVTUjQw/" target="_blank" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.tiktok.com/@black_is_back_projects" target="_blank" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="https://wa.me/27636377014" target="_blank" class="social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Pages</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="reviews.html">Reviews</a></li>
+          <li><a href="referral.html">Referral</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="services.html">Ceiling Installation</a></li>
+          <li><a href="services.html">Floor &amp; Wall Tiling</a></li>
+          <li><a href="services.html">Electrical Wiring</a></li>
+          <li><a href="services.html">Custom Carpentry</a></li>
+          <li><a href="services.html">Project Management</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="tel:+27636377014">063 637 7014</a></li>
+          <li><a href="tel:+27739972386">073 997 2386</a></li>
+          <li><a href="https://wa.me/27636377014" target="_blank">WhatsApp Us</a></li>
+          <li><a>Johannesburg, Gauteng</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Black Is Back Projects. All Rights Reserved.</p>
+      <p>Measured twice. Installed once.</p>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/27636377014?text=Hi%2C%20I%20have%20a%20question" class="wa-float" target="_blank" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
