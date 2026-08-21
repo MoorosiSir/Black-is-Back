@@ -402,6 +402,14 @@ footer.site-footer { background: var(--surface); border-top: 1px solid var(--lin
   display: flex; flex-direction: column; gap: .5rem; font-size: .74rem; color: var(--muted);
 }
 
+.credit-link {
+  color: var(--muted); text-decoration: none; display: inline-flex; align-items: center; gap: .35rem;
+  transition: color .25s, gap .25s;
+}
+.credit-link:hover { color: var(--green); gap: .55rem; }
+.credit-link i { font-size: .7rem; transition: transform .25s; }
+.credit-link:hover i { transform: translateX(2px); }
+
 /* ─── WhatsApp float ─────────────────────────────────────────────────────── */
 .wa-float {
   position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 400;
