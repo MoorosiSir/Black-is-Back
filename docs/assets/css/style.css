@@ -1,11 +1,3 @@
-/* ═══════════════════════════════════════════════════════════════════════
-   BLACK IS BACK PROJECTS — design system
-   Concept: "True Level" — a builder's spirit-level and laser-line motif.
-   Precision renovation work, expressed through measurement marks, a level
-   bubble, and a single glowing green line that runs through the site the
-   way a laser level runs through a room.
-   ═══════════════════════════════════════════════════════════════════════ */
-
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
