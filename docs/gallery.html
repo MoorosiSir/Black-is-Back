@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Gallery — Black Is Back Projects</title>
-<meta name="description" content="Browse recent ceiling, tiling, electrical and carpentry projects completed across Johannesburg and Gauteng." />
+<meta name="description" content="Browse recent ceiling, tiling and carpentry projects completed across Johannesburg and Gauteng." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -39,11 +39,9 @@
     <a href="referral.html" data-nav="referral.html"><span>Referral</span><span class="mark">06</span></a>
     <a href="contact.html" data-nav="contact.html"><span>Contact</span><span class="mark">07</span></a>
     <a href="https://wa.me/27636377014?text=Hi%2C%20I%27d%20like%20a%20free%20quote" class="btn btn-primary btn-block drawer-cta" target="_blank"><i class="fab fa-whatsapp"></i> Get Free Quote</a>
-    <!--
     <div class="drawer-contact">
       <a href="tel:+27636377014"><i class="fas fa-phone"></i> 063 637 7014</a>
       <a href="https://wa.me/27636377014" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
-    -->
     </div>
   </nav>
 </div>
@@ -62,22 +60,18 @@
       <button class="filter-btn active" onclick="filterGallery('all', this)">All Work</button>
       <button class="filter-btn" onclick="filterGallery('ceiling', this)">Ceilings</button>
       <button class="filter-btn" onclick="filterGallery('tiling', this)">Tiling</button>
-      <button class="filter-btn" onclick="filterGallery('electrical', this)">Electrical</button>
       <button class="filter-btn" onclick="filterGallery('carpentry', this)">Carpentry</button>
     </div>
 
     <div class="gallery-grid reveal">
-      <div class="gallery-item" data-cat="ceiling"><i class="fas fa-image"></i><span class="cat-label">CEILING PROJECT</span><span class="job-label">Gypsum Ceiling — Kempton Park</span></div>
-      <div class="gallery-item" data-cat="tiling"><i class="fas fa-image"></i><span class="cat-label">TILING PROJECT</span><span class="job-label">Bathroom Tiling — Centurion</span></div>
-      <div class="gallery-item" data-cat="electrical"><i class="fas fa-image"></i><span class="cat-label">ELECTRICAL PROJECT</span><span class="job-label">DB Board Upgrade — Sandton</span></div>
-      <div class="gallery-item" data-cat="carpentry"><i class="fas fa-image"></i><span class="cat-label">CARPENTRY PROJECT</span><span class="job-label">Kitchen Units — Roodepoort</span></div>
-      <div class="gallery-item" data-cat="ceiling"><i class="fas fa-image"></i><span class="cat-label">CEILING PROJECT</span><span class="job-label">PVC Ceiling — Midrand</span></div>
-      <div class="gallery-item" data-cat="tiling"><i class="fas fa-image"></i><span class="cat-label">TILING PROJECT</span><span class="job-label">Outdoor Paving — Centurion</span></div>
-      <div class="gallery-item" data-cat="carpentry"><i class="fas fa-image"></i><span class="cat-label">CARPENTRY PROJECT</span><span class="job-label">TV Feature Wall — Soweto</span></div>
-      <div class="gallery-item" data-cat="electrical"><i class="fas fa-image"></i><span class="cat-label">ELECTRICAL PROJECT</span><span class="job-label">Lighting Install — Pretoria</span></div>
-      <div class="gallery-item" data-cat="ceiling"><i class="fas fa-image"></i><span class="cat-label">CEILING PROJECT</span><span class="job-label">Suspended Ceiling — Sandton</span></div>
+      <div class="gallery-item" data-cat="ceiling"><img src="assets/images/Ceiling-installation-in-Evaton-West.webp" alt="Gypsum ceiling installation in Kempton Park" loading="lazy"><span class="job-label">Ceiling installation Evaton West</span></div>
+      <div class="gallery-item" data-cat="tiling"><img src="assets/images/Floor-Tile-in-Naturena.webp" alt="Bathroom tiling project in Centurion" loading="lazy"><span class="job-label">Floor tiling Naturena</span></div>
+      <div class="gallery-item" data-cat="carpentry"><img src="assets/images/Kitchen-in-SkyCity-After.webp" alt="Custom kitchen units in Roodepoort" loading="lazy"><span class="job-label">Kitchen SkyCity</span></div>
+      <div class="gallery-item" data-cat="ceiling"><img src="assets/images/Ceiling-installation-Drieziek.webp" alt="PVC ceiling installation in Midrand" loading="lazy"><span class="job-label">Ceiling installation Drieziek</span></div>
+      <div class="gallery-item" data-cat="tiling"><img src="assets/images/outdoor-paving-centurion.png" alt="Outdoor paving project in Centurion" loading="lazy"><span class="cat-label">TILING PROJECT</span><span class="job-label">Outdoor Paving — Centurion</span></div>
+      <div class="gallery-item" data-cat="carpentry"><img src="assets/images/tv-feature-wall-soweto.png" alt="TV feature wall carpentry in Soweto" loading="lazy"><span class="cat-label">CARPENTRY PROJECT</span><span class="job-label">TV Feature Wall — Soweto</span></div>
+      <div class="gallery-item" data-cat="ceiling"><img src="assets/images/suspended-ceiling-sandton.png" alt="Suspended ceiling installation in Sandton" loading="lazy"><span class="cat-label">CEILING PROJECT</span><span class="job-label">Suspended Ceiling — Sandton</span></div>
     </div>
-    <p class="mark" style="text-align:center;margin-top:2rem;color:var(--muted)">Placeholder tiles — swap each &lt;div class="gallery-item"&gt; for an &lt;img&gt; of the real project photo.</p>
   </div>
 </section>
 
@@ -93,7 +87,7 @@
     <div class="footer-cols">
       <div class="footer-brand">
         <a href="index.html" class="logo"><span class="dot"></span>BLACK IS <em>BACK</em></a>
-        <p>Premium renovation services across Johannesburg and Gauteng. Ceilings, tiling, electrical, carpentry — every project, measured true.</p>
+        <p>Premium renovation services across Johannesburg and Gauteng. Ceilings, tiling, carpentry — every project, measured true.</p>
         <div class="social-row">
           <a href="https://www.facebook.com/share/17CYVTUjQw/" target="_blank" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
           <a href="https://www.tiktok.com/@black_is_back_projects" target="_blank" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
@@ -117,7 +111,6 @@
         <ul>
           <li><a href="services.html">Ceiling Installation</a></li>
           <li><a href="services.html">Floor &amp; Wall Tiling</a></li>
-          <li><a href="services.html">Electrical Wiring</a></li>
           <li><a href="services.html">Custom Carpentry</a></li>
           <li><a href="services.html">Project Management</a></li>
         </ul>
@@ -141,6 +134,18 @@
 </footer>
 
 <a href="https://wa.me/27636377014?text=Hi%2C%20I%20have%20a%20question" class="wa-float" target="_blank" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" onclick="closeLightbox()" aria-label="Close">&times;</button>
+  <button class="lb-nav lb-prev" onclick="lbNav(-1)" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+  <div class="lb-stage">
+    <img id="lbImage" src="" alt="" />
+    <div class="lb-caption" id="lbCaption"></div>
+  </div>
+  <button class="lb-nav lb-next" onclick="lbNav(1)" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+  <div class="lb-counter" id="lbCounter"></div>
+</div>
+
 <script src="assets/js/main.js"></script>
 </body>
 </html>
