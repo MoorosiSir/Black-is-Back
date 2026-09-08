@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Gallery — Black Is Back Projects</title>
-<meta name="description" content="Browse recent ceiling, tiling and carpentry projects completed across Johannesburg and Gauteng." />
+<title>Promotions — Black Is Back Projects</title>
+<meta name="description" content="Current offers and promotions from Black Is Back Projects, renovation specialists across Johannesburg and Gauteng." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -18,10 +18,12 @@
     <nav class="nav-links">
       <a href="index.html" data-nav="index.html">Home</a>
       <a href="services.html" data-nav="services.html">Services</a>
+      <a href="promotions.html" data-nav="promotions.html">Promotions</a>
       <a href="gallery.html" data-nav="gallery.html">Gallery</a>
       <a href="about.html" data-nav="about.html">About</a>
       <a href="reviews.html" data-nav="reviews.html">Reviews</a>
       <a href="referral.html" data-nav="referral.html">Referral</a>
+      <a href="partnerships.html" data-nav="partnerships.html">Partnerships</a>
       <a href="contact.html" data-nav="contact.html">Contact</a>
     </nav>
     <a href="https://wa.me/27636377014?text=Hi%2C%20I%27d%20like%20a%20free%20quote" class="btn btn-primary nav-cta-desktop" target="_blank">Free Quote</a>
@@ -33,12 +35,16 @@
   <nav>
     <a href="index.html" data-nav="index.html"><span>Home</span><span class="mark">01</span></a>
     <a href="services.html" data-nav="services.html"><span>Services</span><span class="mark">02</span></a>
-    <a href="gallery.html" data-nav="gallery.html"><span>Gallery</span><span class="mark">03</span></a>
-    <a href="about.html" data-nav="about.html"><span>About</span><span class="mark">04</span></a>
-    <a href="reviews.html" data-nav="reviews.html"><span>Reviews</span><span class="mark">05</span></a>
-    <a href="referral.html" data-nav="referral.html"><span>Referral</span><span class="mark">06</span></a>
-    <a href="contact.html" data-nav="contact.html"><span>Contact</span><span class="mark">07</span></a>
+    <a href="promotions.html" data-nav="promotions.html"><span>Promotions</span><span class="mark">03</span></a>
+    <a href="gallery.html" data-nav="gallery.html"><span>Gallery</span><span class="mark">04</span></a>
+    <a href="about.html" data-nav="about.html"><span>About</span><span class="mark">05</span></a>
+    <a href="reviews.html" data-nav="reviews.html"><span>Reviews</span><span class="mark">06</span></a>
+    <a href="referral.html" data-nav="referral.html"><span>Referral</span><span class="mark">07</span></a>
+    <a href="partnerships.html" data-nav="partnerships.html"><span>Partnerships</span><span class="mark">08</span></a>
+    <a href="contact.html" data-nav="contact.html"><span>Contact</span><span class="mark">09</span></a>
+    <!--
     <a href="https://wa.me/27636377014?text=Hi%2C%20I%27d%20like%20a%20free%20quote" class="btn btn-primary btn-block drawer-cta" target="_blank"><i class="fab fa-whatsapp"></i> Get Free Quote</a>
+    -->
     <div class="drawer-contact">
       <a href="tel:+27636377014"><i class="fas fa-phone"></i> 063 637 7014</a>
       <a href="https://wa.me/27636377014" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
@@ -48,37 +54,49 @@
 
 <section class="page-hero band">
   <div class="wrap">
-    <div class="eyebrow reveal"><span>Recent Work</span></div>
-    <h1 class="h-display reveal">EXCELLENCE<br><em>IN ACTION</em></h1>
-    <p class="lede-lg reveal" style="margin-top:1rem">A look at real projects across Johannesburg and Gauteng. Filter by trade to see work closest to yours.</p>
+    <div class="eyebrow reveal"><span>Limited Time</span></div>
+    <h1 class="h-display reveal">CURRENT<br><em>PROMOTIONS</em></h1>
+    <p class="lede-lg reveal" style="margin-top:1rem">Special offers on select BIB services, running for a limited time. Ask us on WhatsApp which promotions are active right now.</p>
   </div>
 </section>
 
-<section class="section" style="padding-top:1rem">
+<section class="section">
   <div class="wrap">
-    <div class="filter-row reveal">
-      <button class="filter-btn active" onclick="filterGallery('all', this)">All Work</button>
-      <button class="filter-btn" onclick="filterGallery('ceiling', this)">Ceilings</button>
-      <button class="filter-btn" onclick="filterGallery('tiling', this)">Tiling</button>
-      <button class="filter-btn" onclick="filterGallery('carpentry', this)">Carpentry</button>
+    <div class="card-grid services-3 reveal">
+      <div class="service-card">
+        <div class="service-num">Offer 01</div>
+        <h3>New Client Welcome Offer</h3>
+        <p>A welcome discount for first-time BIB clients booking any renovation service.</p>
+        <div class="service-tag">Ask Us For Details</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">Offer 02</div>
+        <h3>Multi-Room Bundle</h3>
+        <p>Combine two or more rooms in a single project and save on the combined quote.</p>
+        <div class="service-tag">Ask Us For Details</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">Offer 03</div>
+        <h3>Refer &amp; Earn</h3>
+        <p>Know someone who needs a renovation? Refer them to BIB and earn a reward once their project is completed and paid.</p>
+        <div class="service-tag"><a href="referral.html" style="color:inherit;text-decoration:none">See Referral Programme →</a></div>
+      </div>
     </div>
-
-    <div class="gallery-grid reveal">
-      <div class="gallery-item" data-cat="ceiling"><img src="assets/images/gypsum-ceiling-kempton-park.png" alt="Gypsum ceiling installation in Kempton Park" loading="lazy"><span class="cat-label">CEILING PROJECT</span><span class="job-label">Gypsum Ceiling — Kempton Park</span></div>
-      <div class="gallery-item" data-cat="tiling"><img src="assets/images/bathroom-tiling-centurion.png" alt="Bathroom tiling project in Centurion" loading="lazy"><span class="cat-label">TILING PROJECT</span><span class="job-label">Bathroom Tiling — Centurion</span></div>
-      <div class="gallery-item" data-cat="carpentry"><img src="assets/images/kitchen-units-roodepoort.png" alt="Custom kitchen units in Roodepoort" loading="lazy"><span class="cat-label">CARPENTRY PROJECT</span><span class="job-label">Kitchen Units — Roodepoort</span></div>
-      <div class="gallery-item" data-cat="ceiling"><img src="assets/images/pvc-ceiling-midrand.png" alt="PVC ceiling installation in Midrand" loading="lazy"><span class="cat-label">CEILING PROJECT</span><span class="job-label">PVC Ceiling — Midrand</span></div>
-      <div class="gallery-item" data-cat="tiling"><img src="assets/images/outdoor-paving-centurion.png" alt="Outdoor paving project in Centurion" loading="lazy"><span class="cat-label">TILING PROJECT</span><span class="job-label">Outdoor Paving — Centurion</span></div>
-      <div class="gallery-item" data-cat="carpentry"><img src="assets/images/tv-feature-wall-soweto.png" alt="TV feature wall carpentry in Soweto" loading="lazy"><span class="cat-label">CARPENTRY PROJECT</span><span class="job-label">TV Feature Wall — Soweto</span></div>
-      <div class="gallery-item" data-cat="ceiling"><img src="assets/images/suspended-ceiling-sandton.png" alt="Suspended ceiling installation in Sandton" loading="lazy"><span class="cat-label">CEILING PROJECT</span><span class="job-label">Suspended Ceiling — Sandton</span></div>
-    </div>
+    
   </div>
 </section>
+
+<div class="band" style="padding:2rem 0;text-align:center">
+  <p class="wrap" style="font-size:.76rem;color:var(--muted);max-width:60ch;margin:0 auto;line-height:1.85">
+    Promotions are valid for a limited time only and may be withdrawn or changed without notice. Offers cannot be combined with any other promotion unless stated otherwise. Standard BIB terms and conditions apply.
+  </p>
+</div>
 
 <div class="cta-band">
   <div class="wrap">
-    <h2 class="h-section">YOUR PROJECT<br>COULD BE NEXT</h2>
-    <a href="https://wa.me/27636377014?text=Hi%2C%20I%27d%20like%20a%20free%20quote" class="btn btn-dark" target="_blank"><i class="fab fa-whatsapp"></i> Get Free Quote</a>
+    <h2 class="h-section">WANT TO KNOW WHAT'S<br>ON OFFER RIGHT NOW?</h2>
+    <p>Message us on WhatsApp and we'll confirm which promotions are currently running.</p>
+    <a href="https://wa.me/27636377014?text=Hi%2C%20I%27d%20like%20to%20know%20about%20current%20promotions" class="btn btn-dark" target="_blank"><i class="fab fa-whatsapp"></i> Ask About Promotions</a>
   </div>
 </div>
 
@@ -99,20 +117,24 @@
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="services.html">Services</a></li>
+          <li><a href="promotions.html">Promotions</a></li>
           <li><a href="gallery.html">Gallery</a></li>
           <li><a href="about.html">About Us</a></li>
           <li><a href="reviews.html">Reviews</a></li>
           <li><a href="referral.html">Referral</a></li>
+          <li><a href="partnerships.html">Partnerships</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h5>Services</h5>
         <ul>
+          <li><a href="services.html">Kitchen Units</a></li>
+          <li><a href="services.html">Bedroom Units</a></li>
+          <li><a href="services.html">Living Room Furniture</a></li>
+          <li><a href="services.html">Wall & Floor Finishes</a></li>
           <li><a href="services.html">Ceiling Installation</a></li>
-          <li><a href="services.html">Floor &amp; Wall Tiling</a></li>
-          <li><a href="services.html">Custom Carpentry</a></li>
-          <li><a href="services.html">Project Management</a></li>
+          <li><a href="services.html">Wall & Floor Finishes</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -134,18 +156,6 @@
 </footer>
 
 <a href="https://wa.me/27636377014?text=Hi%2C%20I%20have%20a%20question" class="wa-float" target="_blank" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
-
-<div class="lightbox" id="lightbox">
-  <button class="lb-close" onclick="closeLightbox()" aria-label="Close">&times;</button>
-  <button class="lb-nav lb-prev" onclick="lbNav(-1)" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
-  <div class="lb-stage">
-    <img id="lbImage" src="" alt="" />
-    <div class="lb-caption" id="lbCaption"></div>
-  </div>
-  <button class="lb-nav lb-next" onclick="lbNav(1)" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
-  <div class="lb-counter" id="lbCounter"></div>
-</div>
-
 <script src="assets/js/main.js"></script>
 </body>
 </html>

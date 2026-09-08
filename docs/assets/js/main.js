@@ -135,3 +135,21 @@ function handleFormSubmit(e) {
   document.getElementById('formSuccess').style.display = 'block';
   setTimeout(() => window.open(`https://wa.me/27636377014?text=${msg}`, '_blank'), 700);
 }
+
+/* ── Partnership application form -> WhatsApp ── */
+function handlePartnerFormSubmit(e) {
+  e.preventDefault();
+  const f = e.target;
+  const business = f.querySelector('[name=business]').value;
+  const contact = f.querySelector('[name=contact]').value;
+  const phone = f.querySelector('[name=phone]').value;
+  const email = f.querySelector('[name=email]').value;
+  const location = f.querySelector('[name=location]').value;
+  const industry = f.querySelector('[name=industry]').value;
+  const offer = f.querySelector('[name=offer]').value;
+  const collab = f.querySelector('[name=collab]').value;
+  const links = f.querySelector('[name=links]').value;
+  const msg = encodeURIComponent(`Hi, I'd like to explore a BIB partnership!\n\nBusiness: ${business}\nContact: ${contact}\nPhone: ${phone}\nEmail: ${email}\nLocation: ${location}\nIndustry: ${industry}\nWhat we offer: ${offer}\nHow we could collaborate: ${collab}\nLinks: ${links}`);
+  document.getElementById('partnerFormSuccess').style.display = 'block';
+  setTimeout(() => window.open(`https://wa.me/27636377014?text=${msg}`, '_blank'), 700);
+}
