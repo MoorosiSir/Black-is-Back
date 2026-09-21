@@ -26,7 +26,7 @@
       <a href="partnerships.html" data-nav="partnerships.html">Partnerships</a>
       <a href="contact.html" data-nav="contact.html">Contact</a>
     </nav>
-    <a href="https://wa.me/27636377014?text=Hi%2C%20I%27d%20like%20a%20free%20quote" class="btn btn-primary nav-cta-desktop" target="_blank">Free Quote</a>
+    <a href="https://wa.me/27636377014?text=Hi%2C%20I%27d%20like%20a%20free%20quote" class="btn btn-primary nav-cta-desktop" target="_blank">Start Your Project</a>
     <button class="burger" id="burger" onclick="toggleDrawer()" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </header>
@@ -43,7 +43,7 @@
     <a href="partnerships.html" data-nav="partnerships.html"><span>Partnerships</span><span class="mark">08</span></a>
     <a href="contact.html" data-nav="contact.html"><span>Contact</span><span class="mark">09</span></a>
     <!--
-    <a href="https://wa.me/27636377014?text=Hi%2C%20I%27d%20like%20a%20free%20quote" class="btn btn-primary btn-block drawer-cta" target="_blank"><i class="fab fa-whatsapp"></i> Get Free Quote</a>
+    <a href="https://wa.me/27636377014?text=Hi%2C%20I%27d%20like%20a%20free%20quote" class="btn btn-primary btn-block drawer-cta" target="_blank"><i class="fab fa-whatsapp"></i> Start Your Project</a>
     -->
     <div class="drawer-contact">
       <a href="tel:+27636377014"><i class="fas fa-phone"></i> 063 637 7014</a>
@@ -75,23 +75,23 @@
         <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
         <div class="contact-text">
           <h4>WhatsApp</h4>
-          <a href="https://wa.me/27636377014" target="_blank">063 637 7014</a>
+          <a href="https://wa.me/27636377014" target="_blank">Chat with BIB</a>
         </div>
       </div>
       <div class="contact-method">
         <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
         <div class="contact-text">
-          <h4>Service Area</h4>
-          <p>Johannesburg &amp; surrounding Gauteng — Sandton, Soweto, Pretoria, Midrand &amp; more</p>
+          <h4>Where We Work</h4>
+          <p>Johannesburg and surrounding areas across Gauteng.</p>
         </div>
       </div>
       <div class="contact-method">
-        <div class="contact-icon"><i class="fas fa-clock"></i></div>
-        <div class="contact-text">
-          <h4>Availability</h4>
-          <p>Monday – Saturday: 7am – 7pm<br>Sunday: Emergencies Only</p>
-        </div>
-      </div>
+  <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+  <div class="contact-text">
+    <h4>Where We Work</h4>
+    <p>We work across Johannesburg, the Vaal and surrounding Gauteng areas, including Soweto, Lenasia, Sky City, Golden Gardens, Palm Springs, Sebokeng and Vanderbijlpark.</p>
+  </div>
+</div>
       <div class="social-row">
         <a href="https://www.facebook.com/share/17CYVTUjQw/" target="_blank" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
         <a href="https://www.tiktok.com/@black_is_back_projects" target="_blank" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
@@ -99,34 +99,35 @@
       </div>
     </div>
 
-    <div class="contact-right reveal">
-      <h3 class="h-sub" style="margin-bottom:1.6rem;font-size:1.3rem">Request a <em style="color:var(--green)">Free Quote</em></h3>
-      <div id="formSuccess" class="form-success">✓ Thank you! We'll be in touch within 24 hours.</div>
+        <div class="contact-right reveal">
+      <h3 class="h-sub" style="margin-bottom:1.6rem;font-size:1.3rem">Tell Us About Your <em style="color:var(--green)">Project</em></h3>
+      <div id="formSuccess" class="form-success">✓ Thanks! Your details are ready to send via WhatsApp.</div>
       <form onsubmit="handleFormSubmit(event)">
         <div class="field-row">
-          <div class="field"><label>First Name</label><input type="text" name="first" placeholder="John" required /></div>
-          <div class="field"><label>Last Name</label><input type="text" name="last" placeholder="Smith" required /></div>
+          <div class="field"><label>First Name</label><input type="text" name="first" placeholder="Your first name" required /></div>
+          <div class="field"><label>Last Name</label><input type="text" name="last" placeholder="Your last name" required /></div>
         </div>
         <div class="field"><label>Phone Number</label><input type="tel" name="phone" placeholder="0XX XXX XXXX" required /></div>
-        <div class="field"><label>Email Address</label><input type="email" name="email" placeholder="you@example.com" /></div>
+        <div class="field"><label>Email Address <span style="opacity:.6">(Optional)</span></label><input type="email" name="email" placeholder="you@example.com" /></div>
         <div class="field">
-          <label>Service Required</label>
+          <label>What Are You Planning?</label>
           <select name="service" required>
-            <option value="" disabled selected>What would you like to change?</option>
-            <option>My Kitchen</option>
-            <option>My living room</option>
-            <option>My bedroom</option>
-            <option>My walls</option>
-            <option>My floors</option>
-            <option>My ceiling</option>
-            <option>I want something custom made</option>
-            <option>I'm not sure, I need help</option>
+            <option value="" disabled selected>Choose an option</option>
+            <option>Kitchen</option>
+            <option>Wardrobe or Bedroom Units</option>
+            <option>Custom Furniture</option>
+            <option>Walls or Wall Features</option>
+            <option>Floors or Tiling</option>
+            <option>Ceiling</option>
+            <option>Home Improvement</option>
+            <option>Something Else</option>
+            <option>I'm Not Sure — I Need Help</option>
           </select>
         </div>
-        <div class="field"><label>Project Details</label><textarea name="details" rows="4" placeholder="Briefly describe your space and what you'd like done..."></textarea></div>
+        <div class="field"><label>Tell Us About Your Idea</label><textarea name="details" rows="4" placeholder="Tell us what you have in mind, what you'd like to change, or what you need help with..."></textarea></div>
         <button type="submit" class="btn btn-primary btn-block"><i class="fab fa-whatsapp"></i> Send via WhatsApp</button>
       </form>
-      <p class="form-note">By submitting this form, we'll prepare your details and open WhatsApp so you can send us your request instantly.</p>
+      <p class="form-note">Your details will be prepared and opened in WhatsApp so you can review and send your request directly to BIB.</p>
     </div>
   </div>
 </section>
@@ -136,13 +137,14 @@
     <div class="footer-cols">
       <div class="footer-brand">
         <a href="index.html" class="logo"><span class="dot"></span>BLACK IS <em>BACK</em></a>
-        <p>Premium renovation services across Johannesburg and Gauteng. Ceilings, tiling, carpentry — every project, measured true.</p>
+        <p>We help homeowners turn ideas into practical, beautiful spaces — planned, designed and built around the way you live.</p>
         <div class="social-row">
           <a href="https://www.facebook.com/share/17CYVTUjQw/" target="_blank" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
           <a href="https://www.tiktok.com/@black_is_back_projects" target="_blank" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
           <a href="https://wa.me/27636377014" target="_blank" class="social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         </div>
       </div>
+
       <div class="footer-col">
         <h5>Pages</h5>
         <ul>
@@ -157,17 +159,19 @@
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
+
       <div class="footer-col">
-        <h5>Services</h5>
+        <h5>What We Build</h5>
         <ul>
           <li><a href="services.html">Kitchen Units</a></li>
           <li><a href="services.html">Bedroom Units</a></li>
-          <li><a href="services.html">Living Room Furniture</a></li>
-          <li><a href="services.html">Wall & Floor Finishes</a></li>
+          <li><a href="services.html">Custom Furniture</a></li>
           <li><a href="services.html">Ceiling Installation</a></li>
-          <li><a href="services.html">Wall & Floor Finishes</a></li>
+          <li><a href="services.html">Wall &amp; Floor Finishes</a></li>
+          <li><a href="services.html">Home Improvements</a></li>
         </ul>
       </div>
+
       <div class="footer-col">
         <h5>Contact</h5>
         <ul>
@@ -178,6 +182,7 @@
         </ul>
       </div>
     </div>
+    
     <div class="footer-bottom">
       <p>&copy; 2026 Black Is Back Projects. All Rights Reserved.</p>
       <p>Measured twice. Installed once.</p>
