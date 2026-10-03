@@ -1,158 +1,411 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>About Us — Black Is Back Projects</title>
-<meta name="description" content="Meet the team behind Black Is Back Projects — a Johannesburg renovation company built on precision, integrity and craftsmanship." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-<link rel="stylesheet" href="assets/css/style.css" />
-</head>
-<body>
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — Black Is Back Projects</title>
+  <meta name="description" content="Meet the team behind Black Is Back Projects — a Johannesburg renovation company built on precision, integrity and craftsmanship." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
 
-<header class="site-nav">
-  <div class="wrap nav-inner">
+  <header class="site-nav">
+    <div class="wrap nav-inner">
 
-   <a href="index.html" class="logo">
-     <img src="assets/logos/BIB_Logo_Color_On_Black.webp" alt="Black Is Back logo">
-     BLACK IS <em>BACK</em>
-   </a>
-
-    <nav class="nav-links">
-      <a href="index.html" data-nav="index.html">Home</a>
-      <a href="services.html" data-nav="services.html">Services</a>
-      <a href="promotions.html" data-nav="promotions.html">Promotions</a>
-      <a href="gallery.html" data-nav="gallery.html">Gallery</a>
-      <a href="about.html" data-nav="about.html">About</a>
-      <a href="reviews.html" data-nav="reviews.html">Reviews</a>
-      <a href="referral.html" data-nav="referral.html">Referral</a>
-      <a href="partnerships.html" data-nav="partnerships.html">Partnerships</a>
-      <a href="contact.html" data-nav="contact.html">Contact</a>
-    </nav>
-
-    <a
-      href="https://wa.me/27636377014?text=Hi%2C%20I%27d%20like%20to%20start%20a%20project"
-      class="btn btn-primary nav-cta-desktop"
-      target="_blank"
-    >
-      Start A Project
+    <a href="index.html" class="logo">
+      <img src="assets/logos/BIB_Logo_Color_On_Black.webp" alt="Black Is Back logo">
+      BLACK IS <em>BACK</em>
     </a>
 
-    <button
-      class="burger"
-      id="burger"
-      onclick="toggleDrawer()"
-      aria-label="Menu"
-    >
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+      <nav class="nav-links">
+        <a href="index.html" data-nav="index.html">Home</a>
+        <a href="services.html" data-nav="services.html">Services</a>
+        <a href="promotions.html" data-nav="promotions.html">Promotions</a>
+        <a href="gallery.html" data-nav="gallery.html">Gallery</a>
+        <a href="about.html" data-nav="about.html">About</a>
+        <a href="reviews.html" data-nav="reviews.html">Reviews</a>
+        <a href="referral.html" data-nav="referral.html">Referral</a>
+        <a href="partnerships.html" data-nav="partnerships.html">Partnerships</a>
+        <a href="contact.html" data-nav="contact.html">Contact</a>
+      </nav>
 
+      <a
+        href="https://wa.me/27636377014?text=Hi%2C%20I%27d%20like%20to%20start%20a%20project"
+        class="btn btn-primary nav-cta-desktop"
+        target="_blank"
+      >
+        Start A Project
+      </a>
+
+      <button
+        class="burger"
+        id="burger"
+        onclick="toggleDrawer()"
+        aria-label="Menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+
+  </header>
+
+  <div class="mobile-drawer" id="mobileDrawer">
+    <nav>
+      <a href="index.html" data-nav="index.html"><span>Home</span><span class="mark">01</span></a>
+      <a href="services.html" data-nav="services.html"><span>Services</span><span class="mark">02</span></a>
+      <a href="promotions.html" data-nav="promotions.html"><span>Promotions</span><span class="mark">03</span></a>
+      <a href="gallery.html" data-nav="gallery.html"><span>Gallery</span><span class="mark">04</span></a>
+      <a href="about.html" data-nav="about.html"><span>About</span><span class="mark">05</span></a>
+      <a href="reviews.html" data-nav="reviews.html"><span>Reviews</span><span class="mark">06</span></a>
+      <a href="referral.html" data-nav="referral.html"><span>Referral</span><span class="mark">07</span></a>
+      <a href="partnerships.html" data-nav="partnerships.html"><span>Partnerships</span><span class="mark">08</span></a>
+      <a href="contact.html" data-nav="contact.html"><span>Contact</span><span class="mark">09</span></a>
+      <!--
+      <a href="https://wa.me/27636377014?text=Hi%2C%20I%27d%20like%20a%20free%20quote" class="btn btn-primary btn-block drawer-cta" target="_blank"><i class="fab fa-whatsapp"></i> Start Your Project</a>
+      -->
+      <div class="drawer-contact">
+        <a href="tel:+27636377014"><i class="fas fa-phone"></i> 063 637 7014</a>
+        <a href="https://wa.me/27636377014" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+      </div>
+    </nav>
   </div>
 
-</header>
-
-<div class="mobile-drawer" id="mobileDrawer">
-  <nav>
-    <a href="index.html" data-nav="index.html"><span>Home</span><span class="mark">01</span></a>
-    <a href="services.html" data-nav="services.html"><span>Services</span><span class="mark">02</span></a>
-    <a href="promotions.html" data-nav="promotions.html"><span>Promotions</span><span class="mark">03</span></a>
-    <a href="gallery.html" data-nav="gallery.html"><span>Gallery</span><span class="mark">04</span></a>
-    <a href="about.html" data-nav="about.html"><span>About</span><span class="mark">05</span></a>
-    <a href="reviews.html" data-nav="reviews.html"><span>Reviews</span><span class="mark">06</span></a>
-    <a href="referral.html" data-nav="referral.html"><span>Referral</span><span class="mark">07</span></a>
-    <a href="partnerships.html" data-nav="partnerships.html"><span>Partnerships</span><span class="mark">08</span></a>
-    <a href="contact.html" data-nav="contact.html"><span>Contact</span><span class="mark">09</span></a>
-    <!--
-    <a href="https://wa.me/27636377014?text=Hi%2C%20I%27d%20like%20a%20free%20quote" class="btn btn-primary btn-block drawer-cta" target="_blank"><i class="fab fa-whatsapp"></i> Start Your Project</a>
-    -->
-    <div class="drawer-contact">
-      <a href="tel:+27636377014"><i class="fas fa-phone"></i> 063 637 7014</a>
-      <a href="https://wa.me/27636377014" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+  <section class="page-hero band">
+    <div class="wrap">
+      <div class="eyebrow reveal"><span>About BIB</span></div>
+      <h1 class="h-display reveal">WE TURN IDEAS<br><em>INTO REAL SPACES.</em></h1>
+      <p class="lede-lg reveal" style="margin-top:1rem">Black Is Back Projects helps homeowners turn ideas into practical, beautiful spaces — with planning, design and hands-on work built around the space you actually have.</p>
     </div>
-  </nav>
+  </section>
+
+  <section class="section" style="padding-top:1.5rem">
+    <div class="wrap">
+      <p class="lede-lg reveal" style="font-family:var(--font-display);font-size:1.4rem;text-transform:none;color:var(--paper);max-width:32ch;margin-bottom:1.6rem;line-height:1.3">"Good work starts with understanding what you want — then finding the right way to bring it into your space."</p>
+      <p class="lede reveal" style="margin-bottom:1.2rem;max-width:60ch">Black Is Back Projects is a young, growing business built around a simple idea: your space should work for you. We help homeowners turn ideas into practical, beautiful spaces through careful planning, design and hands-on work.</p>
+      <p class="lede reveal" style="margin-bottom:1.2rem;max-width:60ch">We listen to what you want, look at the space you have, and help work out a solution that makes sense. Where a visual design helps, we can use it to make the idea clearer before the work begins. Then we bring the agreed plan into the real space.</p>
+      <p class="lede reveal" style="max-width:60ch">We're not here to make promises about being the biggest or the oldest. We're building BIB one project at a time — by being honest, paying attention to the details and adding as much value as we can to every project we take on.</p>
+      <a href="contact.html" class="btn btn-primary reveal" style="margin-top:1.6rem">Work With Us →</a>
+    </div>
+  </section>
+
+  <div class="band">
+    <div class="wrap section">
+      <div class="eyebrow reveal"><span>What We Stand For</span></div>
+      <h2 class="h-section reveal">HOW WE <em>WORK</em></h2>
+          <div class="value-grid reveal">
+
+  <div class="value-card">
+    <span class="mark">01</span>
+    <h3>UNDERSTAND FIRST</h3>
+    <p>
+      We start by listening, looking at the space and understanding what you actually need.
+      The right solution begins with understanding the problem.
+    </p>
+  </div>
+
+  <div class="value-card">
+    <span class="mark">02</span>
+    <h3>PLAN BEFORE WE BUILD</h3>
+    <p>
+      We work through the practical details before the work begins.
+      Where a visual design or clearer plan helps, we use it to make the direction understood.
+    </p>
+  </div>
+
+  <div class="value-card">
+    <span class="mark">03</span>
+    <h3>BUILD WITH PRECISION</h3>
+    <p>
+      Measurements, materials, levels, finishes and the small details matter.
+      We want the finished work to function properly and hold up in the real world.
+    </p>
+  </div>
+
+  <div class="value-card">
+    <span class="mark">04</span>
+    <h3>FOLLOW THROUGH</h3>
+    <p>
+      We communicate, stay honest about what is happening and take responsibility for the work
+      from the first conversation through to the finished space.
+    </p>
+  </div>
+
 </div>
 
-<section class="page-hero band">
-  <div class="wrap">
-    <div class="eyebrow reveal"><span>About BIB</span></div>
-    <h1 class="h-display reveal">WE TURN IDEAS<br><em>INTO REAL SPACES.</em></h1>
-    <p class="lede-lg reveal" style="margin-top:1rem">Black Is Back Projects helps homeowners turn ideas into practical, beautiful spaces — with planning, design and hands-on work built around the space you actually have.</p>
-  </div>
-</section>
-
-<section class="section" style="padding-top:1.5rem">
-  <div class="wrap">
-    <p class="lede-lg reveal" style="font-family:var(--font-display);font-size:1.4rem;text-transform:none;color:var(--paper);max-width:32ch;margin-bottom:1.6rem;line-height:1.3">"Good work starts with understanding what you want — then finding the right way to bring it into your space."</p>
-    <p class="lede reveal" style="margin-bottom:1.2rem;max-width:60ch">Black Is Back Projects is a young, growing business built around a simple idea: your space should work for you. We help homeowners turn ideas into practical, beautiful spaces through careful planning, design and hands-on work.</p>
-    <p class="lede reveal" style="margin-bottom:1.2rem;max-width:60ch">We listen to what you want, look at the space you have, and help work out a solution that makes sense. Where a visual design helps, we can use it to make the idea clearer before the work begins. Then we bring the agreed plan into the real space.</p>
-    <p class="lede reveal" style="max-width:60ch">We're not here to make promises about being the biggest or the oldest. We're building BIB one project at a time — by being honest, paying attention to the details and adding as much value as we can to every project we take on.</p>
-    <a href="contact.html" class="btn btn-primary reveal" style="margin-top:1.6rem">Work With Us →</a>
-  </div>
-</section>
-
-<div class="band">
-  <div class="wrap section">
-    <div class="eyebrow reveal"><span>What We Stand For</span></div>
-    <h2 class="h-section reveal">HOW WE <em>WORK</em></h2>
-    <div class="value-grid reveal">
-      
+          </div>
+    </div>
+ </div>
 
 <section class="section">
-  <div class="wrap">
-    <div class="eyebrow reveal"><span>The Team</span></div>
-    <h2 class="h-section reveal">THE PEOPLE BEHIND<br><em>YOUR PROJECT</em></h2>
-    <div class="staff-grid reveal">
+    <div class="wrap">
+      <div class="eyebrow reveal"><span>The Team</span></div>
+      <h2 class="h-section reveal">THE PEOPLE BEHIND<br><em>YOUR PROJECT</em></h2>
+      <div class="staff-grid reveal">
 
-  <div class="staff-card">
-    <div class="staff-photo">
-      <img src="assets/images/founder2.webp" alt="Molefi — Co-Founder of Black Is Back Projects">
-    </div>
-    <div class="staff-info">
-      <h4>Molefi</h4>
-      <span class="staff-role">Co-Founder | Business &amp; Growth</span>
-      <p>Focused on business planning, growth, client communication and building the systems that help BIB move forward.</p>
-    </div>
-  </div>
-
-  <div class="staff-card">
-    <div class="staff-photo">
-      <img src="assets/images/founder1.webp" alt="Tiisetso — Co-Founder of Black Is Back Projects">
-    </div>
-    <div class="staff-info">
-      <h4>Tiisetso (Stix)</h4>
-      <span class="staff-role">Co-Founder | Projects &amp; Making</span>
-      <p>A hands-on maker focused on the practical side of projects and bringing ideas, materials and spaces together to create something real.</p>
-    </div>
-  </div>
-
-</div>
-  </div>
-</section>
-
-<div class="cta-band">
-  <div class="wrap">
-    <h2 class="h-section">HAVE AN IDEA?<br>LET'S BRING IT TO LIFE.</h2>
-    <p>Tell us what you have in mind. We'll help you work out the right solution for your space.</p>
-    <a href="https://wa.me/27636377014?text=Hi%20BIB%2C%20I%20have%20an%20idea%20for%20my%20space%20and%20I%27d%20like%20to%20discuss%20it." class="btn btn-dark" target="_blank"><i class="fab fa-whatsapp"></i> Start Your Project</a>
-  </div>
-</div>
-
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-cols">
-      <div class="footer-brand">
-        <a href="index.html" class="logo"> <img src="assets/logos/BIB_Logo_Color_On_Black.webp" alt="Black Is Back logo"> BLACK IS <em>BACK</em> </a>
-        <p>We help homeowners turn ideas into practical, beautiful spaces — planned, designed and built around the way you live.</p>
-        <div class="social-row">
-          <a href="https://www.facebook.com/share/17CYVTUjQw/" target="_blank" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.tiktok.com/@black_is_back_projects" target="_blank" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-          <a href="https://wa.me/27636377014" target="_blank" class="social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        </div>
+    <div class="staff-card">
+      <div class="staff-photo">
+        <img src="assets/images/founder2.webp" alt="Molefi — Co-Founder of Black Is Back Projects">
       </div>
+      <div class="staff-info">
+        <h4>Molefi</h4>
+        <span class="staff-role">Co-Founder | Business &amp; Growth</span>
+        <p>Focused on business planning, growth, client communication and building the systems that help BIB move forward.</p>
+      </div>
+    </div>
+
+    <div class="staff-card">
+      <div class="staff-photo">
+        <img src="assets/images/founder1.webp" alt="Tiisetso — Co-Founder of Black Is Back Projects">
+      </div>
+      <div class="staff-info">
+        <h4>Tiisetso (Stix)</h4>
+        <span class="staff-role">Co-Founder | Projects &amp; Making</span>
+        <p>A hands-on maker focused on the practical side of projects and bringing ideas, materials and spaces together to create something real.</p>
+      </div>
+    </div>
+
+  </div>
+    </div>
+  </section>
+
+ <!-- ═══ MORE THAN THE JOB ═══ -->
+
+<div class="band more-than-job">
+  <div class="wrap section">
+
+    <div class="eyebrow reveal">
+      <span>More Than The Job</span>
+    </div>
+
+    <h2 class="h-section reveal">
+      THE JOB IS THE JOB.<br>
+      <em>THE RELATIONSHIP IS MORE.</em>
+    </h2>
+
+    <p class="lede-lg reveal"
+       style="font-family:var(--font-display);font-size:1.4rem;text-transform:none;color:var(--paper);max-width:34ch;margin-bottom:1.6rem;line-height:1.3">
+      The work matters. So does the person behind the project.
+    </p>
+
+    <p class="lede reveal"
+       style="margin-bottom:3rem;max-width:58ch">
+      Sometimes a project gives us a reason to do something that was never part of the brief.
+      It might be a thoughtful gesture, fixing something we were not satisfied with, or finding
+      a practical way to solve a problem that appeared along the way.
+    </p>
+
+
+    <!-- STORY 01 -->
+
+    <article class="mtj-story reveal">
+
+      <div class="mtj-story-header">
+        <span class="mark">01 / A MOMENT WORTH MAKING</span>
+        <h3>A BIRTHDAY PORTRAIT</h3>
+      </div>
+
+      <div class="mtj-story-grid">
+
+        <div class="mtj-story-images">
+
+          <figure class="mtj-image">
+            <img
+              src="assets/images/more-than-job/birthday-portrait-01.webp"
+              alt="Handmade birthday portrait created by Black Is Back Projects">
+          </figure>
+
+          <figure class="mtj-image">
+            <img
+              src="assets/images/more-than-job/birthday-portrait-02.webp"
+              alt="Birthday portrait detail">
+          </figure>
+
+        </div>
+
+        <div class="mtj-story-copy">
+
+          <p>
+            Not everything that matters on a project appears on the quotation.
+          </p>
+
+          <p>
+            When we found out about a client's son's birthday, we decided to make something
+            personal for the occasion — a handmade portrait.
+          </p>
+
+          <p>
+            It wasn't part of the job. It wasn't promised. It was simply something we wanted
+            to do.
+          </p>
+
+          <span class="mtj-story-note">
+            THE VALUE WAS NEVER THE POINT. THE THOUGHT WAS.
+          </span>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- STORY 02 -->
+
+    <article class="mtj-story reveal">
+
+      <div class="mtj-story-header">
+        <span class="mark">02 / HOLDING OUR OWN STANDARD</span>
+        <h3>THE CEILING WE WEREN'T SATISFIED WITH</h3>
+      </div>
+
+      <div class="mtj-story-grid">
+
+        <div class="mtj-story-images">
+
+          <figure class="mtj-image">
+            <img
+              src="assets/images/more-than-job/ceiling-01.webp"
+              alt="Black Is Back Projects ceiling project">
+          </figure>
+
+          <figure class="mtj-image">
+            <img
+              src="assets/images/more-than-job/ceiling-02.webp"
+              alt="Ceiling work by Black Is Back Projects">
+          </figure>
+
+        </div>
+
+        <div class="mtj-story-copy">
+
+          <p>
+            Sometimes the extra step is not something we planned to do at all.
+          </p>
+
+          <p>
+            We reached a point on a ceiling project where we were not satisfied with the result.
+            The work may have been moving forward, but it wasn't at the standard we wanted to
+            put our name behind.
+          </p>
+
+          <p>
+            So we addressed it.
+          </p>
+
+          <p>
+            For us, finishing the job is not the same thing as being finished with the job.
+            If something isn't right, we would rather deal with it properly.
+          </p>
+
+          <span class="mtj-story-note">
+            IF IT CARRIES OUR NAME, IT SHOULD MEET OUR STANDARD.
+          </span>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- STORY 03 -->
+
+    <article class="mtj-story reveal">
+
+      <div class="mtj-story-header">
+        <span class="mark">03 / SOLVING WHAT WAS LEFT BEHIND</span>
+        <h3>THE COSMETIC RACK</h3>
+      </div>
+
+      <div class="mtj-story-grid">
+
+        <div class="mtj-story-images">
+
+          <figure class="mtj-image">
+            <img
+              src="assets/images/more-than-job/cosmetic-rack-01.webp"
+              alt="Custom cosmetic rack built by Black Is Back Projects">
+          </figure>
+
+          <figure class="mtj-image">
+            <img
+              src="assets/images/more-than-job/cosmetic-rack-02.webp"
+              alt="Cosmetic rack installation">
+          </figure>
+
+          <figure class="mtj-image">
+            <img
+              src="assets/images/more-than-job/cosmetic-rack-03.webp"
+              alt="Detail of custom cosmetic rack">
+          </figure>
+
+        </div>
+
+        <div class="mtj-story-copy">
+
+          <p>
+            Sometimes a project creates a problem that wasn't part of the original plan.
+          </p>
+
+          <p>
+            After pipe drilling left an area that needed to be dealt with, we built a custom
+            cosmetic rack that covered the affected area while giving the client something
+            useful in return.
+          </p>
+
+          <p>
+            It wasn't simply about hiding the problem. It was about finding a solution that
+            made sense for the space.
+          </p>
+
+          <span class="mtj-story-note">
+            FIND THE PROBLEM. FIND THE BETTER SOLUTION.
+          </span>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <div class="mtj-closing reveal">
+      <span class="tick-rule mtj-rule"></span>
+      <span class="mark">THE WORK ENDS. THE RELATIONSHIP DOESN'T.</span>
+    </div>
+
+  </div>
+</div>
+
+
+  <!-- ═══ CTA ═══ -->
+
+  <div class="cta-band">
+    <div class="wrap">
+      <h2 class="h-section">HAVE AN IDEA?<br>LET'S BRING IT TO LIFE.</h2>
+      <p>Tell us what you have in mind. We'll help you work out the right solution for your space.</p>
+      <a href="https://wa.me/27636377014?text=Hi%20BIB%2C%20I%20have%20an%20idea%20for%20my%20space%20and%20I%27d%20like%20to%20discuss%20it." class="btn btn-dark" target="_blank"><i class="fab fa-whatsapp"></i> Start Your Project</a>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-cols">
+        <div class="footer-brand">
+          <a href="index.html" class="logo"> <img src="assets/logos/BIB_Logo_Color_On_Black.webp" alt="Black Is Back logo"> BLACK IS <em>BACK</em> </a>
+          <p>We help homeowners turn ideas into practical, beautiful spaces — planned, designed and built around the way you live.</p>
+          <div class="social-row">
+            <a href="https://www.facebook.com/share/17CYVTUjQw/" target="_blank" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.tiktok.com/@black_is_back_projects" target="_blank" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://wa.me/27636377014" target="_blank" class="social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
 
       <div class="footer-col">
         <h5>EXPLORE</h5>
@@ -169,38 +422,38 @@
         </ul>
       </div>
 
-      <div class="footer-col">
-        <h5>WHAT WE BUILDd</h5>
-        <ul>
-          <li><a href="services.html">Kitchen Units</a></li>
-          <li><a href="services.html">Bedroom Units</a></li>
-          <li><a href="services.html">Custom Furniture</a></li>
-          <li><a href="services.html">Ceiling Installation</a></li>
-          <li><a href="services.html">Wall &amp; Floor Finishes</a></li>
-          <li><a href="services.html">Home Improvements</a></li>
-        </ul>
+        <div class="footer-col">
+          <h5>WHAT WE BUILDd</h5>
+          <ul>
+            <li><a href="services.html">Kitchen Units</a></li>
+            <li><a href="services.html">Bedroom Units</a></li>
+            <li><a href="services.html">Custom Furniture</a></li>
+            <li><a href="services.html">Ceiling Installation</a></li>
+            <li><a href="services.html">Wall &amp; Floor Finishes</a></li>
+            <li><a href="services.html">Home Improvements</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>GET IN TOUCH</h5>
+          <ul>
+            <li><a href="tel:+27636377014">063 637 7014</a></li>
+            <li><a href="tel:+27739972386">073 997 2386</a></li>
+            <li><a href="https://wa.me/27636377014" target="_blank">WhatsApp Us</a></li>
+            <li><a>Johannesburg, Gauteng</a></li>
+          </ul>
+        </div>
       </div>
 
-      <div class="footer-col">
-        <h5>GET IN TOUCH</h5>
-        <ul>
-          <li><a href="tel:+27636377014">063 637 7014</a></li>
-          <li><a href="tel:+27739972386">073 997 2386</a></li>
-          <li><a href="https://wa.me/27636377014" target="_blank">WhatsApp Us</a></li>
-          <li><a>Johannesburg, Gauteng</a></li>
-        </ul>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Black Is Back Projects. All Rights Reserved.</p>
+        <p>Straight | Level | Clean</p>
+        <a href="https://www.hmpxstudio.co.za" target="_blank" rel="noopener" class="credit-link">Website by HMPX Studio <i class="fas fa-arrow-right"></i></a>
       </div>
     </div>
+  </footer>
 
-    <div class="footer-bottom">
-      <p>&copy; 2026 Black Is Back Projects. All Rights Reserved.</p>
-      <p>Straight | Level | Clean</p>
-      <a href="https://www.hmpxstudio.co.za" target="_blank" rel="noopener" class="credit-link">Website by HMPX Studio <i class="fas fa-arrow-right"></i></a>
-    </div>
-  </div>
-</footer>
-
-<a href="https://wa.me/27636377014?text=Hi%2C%20I%20have%20a%20question" class="wa-float" target="_blank" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
-<script src="assets/js/main.js"></script>
-</body>
-</html>
+  <a href="https://wa.me/27636377014?text=Hi%2C%20I%20have%20a%20question" class="wa-float" target="_blank" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+  <script src="assets/js/main.js"></script>
+  </body>
+  </html>

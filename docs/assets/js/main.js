@@ -35,11 +35,20 @@ function toggleFaq(btn) {
 }
 
 /* ── Gallery filter ── */
+
 function filterGallery(cat, btn) {
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+
+  document.querySelectorAll('.filter-btn').forEach(b => {
+    b.classList.remove('active');
+  });
+
   btn.classList.add('active');
-  document.querySelectorAll('.gallery-item').forEach(item => {
-    item.style.display = (cat === 'all' || item.dataset.cat === cat) ? '' : 'none';
+
+  document.querySelectorAll('.gallery-project').forEach(project => {
+    const projectCat = project.dataset.cat;
+
+    project.style.display =
+      (cat === 'all' || projectCat === cat) ? '' : 'none';
   });
 }
 
@@ -495,35 +504,43 @@ updateHomePromotion();
 
   window.BIB_REVIEWS = [
 
-    {
-      name: "Moorosi",
-      type: "review",
-      project: "Kitchen Project",
-      location: "",
-      rating: 5,
-      text: "BIB understood what I wanted and brought the idea together properly.",
-      source: "Direct",
-      date: "2026-09-17",
-      featured: true
-    },
+  {
+    name: "L. Tebane",
+    type: "testimonial",
+    project: "Ceiling Project",
+    location: "Evaton West",
+    rating: 5,
+    text: "Hi, I'm one of the customers who experienced the work of Black Is Back Projects. They're young and ambitious, their work is so perfect. They work with passion and love their work. Big up guys! May God protect your business and may you get bigger and bigger, with more customers. 🔥",
+    source: "Direct",
+    date: "2025-05-17",
+    featured: true
+  },
 
-    {
-      name: "Example Client",
-      type: "review",
-      project: "Wardrobe Project",
-      location: "",
-      rating: 5,
-      text: "The work was neat and the final result came together just as planned.",
-      source: "Direct",
-      date: "2026-09-17",
-      featured: true
-    }
+  {
+    name: "Example Client",
+    type: "review",
+    project: "Wardrobe Project",
+    location: "Johannesburg",
+    rating: 5,
+    text: "The work was neat and the final result came together just as planned.",
+    source: "Direct",
+    date: "2026-09-17",
+    featured: true
+  },
 
-    /* -------------------------------------------------------
-       ADD MORE REVIEWS / TESTIMONIALS BELOW
-    ------------------------------------------------------- */
+  {
+    name: "Another Client",
+    type: "review",
+    project: "Kitchen Project",
+    location: "Sky City",
+    rating: 5,
+    text: "From the first discussion to the finished work, everything was handled with care and attention to detail.",
+    source: "Direct",
+    date: "2026-09-20",
+    featured: true
+  }
 
-  ];
+];
 
 
   /* ---------------------------------------------------------
@@ -739,103 +756,357 @@ updateHomePromotion();
   }
 
 
-  /* =========================================================
-     HOMEPAGE REVIEWS
-  ========================================================= */
+const homeReviewsList =
+  document.getElementById("homeReviewsList");
 
-  const homeReviewsList =
-    document.getElementById("homeReviewsList");
+if (homeReviewsList) {
 
-  if (homeReviewsList) {
-
-    let homeReviews = [];
+  let homeReviews = [];
 
 
-    /* -----------------------------------------------
-       LAUNCH MODE
-       Show featured testimonials/reviews.
-    ----------------------------------------------- */
+  /* ---------------------------------------------------------
+     SELECT HOMEPAGE REVIEWS
+  --------------------------------------------------------- */
 
-    if (window.BIB_HOME_REVIEWS_MODE === "testimonials") {
+  if (window.BIB_HOME_REVIEWS_MODE === "testimonials") {
 
-      homeReviews =
-        window.BIB_REVIEWS.filter(function (review) {
-          return review.featured === true;
-        });
-
-    }
-
-
-    /* -----------------------------------------------
-       FUTURE GOOGLE MODE
-
-       We will connect Google review data here later.
-       For now, do not use this mode.
-    ----------------------------------------------- */
-
-    if (window.BIB_HOME_REVIEWS_MODE === "google") {
-
-      homeReviews =
-        window.BIB_REVIEWS.filter(function (review) {
-          return review.source === "Google" &&
-                 review.featured === true;
-        });
-
-    }
-
-
-    /* Render homepage feedback */
-
-homeReviewsList.innerHTML = `
-  <div class="review-carousel">
-    <div class="review-carousel-track">
-      ${homeReviews.map(function (review, index) {
-        return `
-          <div class="review-slide ${index === 0 ? "active" : ""}">
-            ${buildReviewCard(review)}
-          </div>
-        `;
-      }).join("")}
-    </div>
-  </div>
-`;
-
-
-/* ---------------------------------------------------------
-   SIMPLE AUTO-ROTATION
---------------------------------------------------------- */
-
-const reviewSlides =
-  homeReviewsList.querySelectorAll(".review-slide");
-
-if (reviewSlides.length > 1) {
-
-  let currentReview = 0;
-
-  setInterval(function () {
-
-    reviewSlides[currentReview]
-      .classList.remove("active");
-
-    currentReview =
-      (currentReview + 1) % reviewSlides.length;
-
-    reviewSlides[currentReview]
-      .classList.add("active");
-
-  }, 5000);
-
-}
+    homeReviews =
+      window.BIB_REVIEWS.filter(function (review) {
+        return review.featured === true;
+      });
 
   }
+
+
+  if (window.BIB_HOME_REVIEWS_MODE === "google") {
+
+    homeReviews =
+      window.BIB_REVIEWS.filter(function (review) {
+        return review.source === "Google" &&
+               review.featured === true;
+      });
+
+  }
+
+
+  if (homeReviews.length > 0) {
+
+    /* -------------------------------------------------------
+       SETTINGS
+    ------------------------------------------------------- */
+
+    const total = homeReviews.length;      /* real reviews (dots)   */
+    const MAX_VISIBLE = 3;                 /* cards on desktop      */
+    const MOBILE_QUERY = "(max-width: 700px)";
+    const SLIDE_DELAY = 5000;              /* ms between slides     */
+
+    /* Clones of the first cards are added to the END of the track
+       so the last real position can slide into "card 1" smoothly.
+       [1][2][3][1][2][3]  ->  after the last slide we silently
+       jump back to position 0, which looks identical.            */
+    const cloneCount = total > 1 ? MAX_VISIBLE : 0;
+
+
+    /* -------------------------------------------------------
+       BUILD HTML (uses the existing buildReviewCard)
+    ------------------------------------------------------- */
+
+    function buildSlide(review, isClone) {
+
+      return `
+        <div class="review-slide${isClone ? " is-clone" : ""}"${isClone ? ' aria-hidden="true"' : ""}>
+          ${buildReviewCard(review)}
+        </div>
+      `;
+
+    }
+
+    let slidesHTML = homeReviews.map(function (review) {
+      return buildSlide(review, false);
+    }).join("");
+
+    for (let i = 0; i < cloneCount; i++) {
+      slidesHTML += buildSlide(homeReviews[i % total], true);
+    }
+
+    homeReviewsList.innerHTML = `
+
+      <div class="review-carousel">
+
+        <div class="review-carousel-track">
+          ${slidesHTML}
+        </div>
+
+      </div>
+
+      <div class="review-carousel-dots">
+
+        ${homeReviews.map(function (review, index) {
+
+          return `
+            <button
+              type="button"
+              class="review-carousel-dot ${index === 0 ? "active" : ""}"
+              data-review-index="${index}"
+              aria-label="Show review ${index + 1}"
+            ></button>
+          `;
+
+        }).join("")}
+
+      </div>
+
+    `;
+
+
+    /* -------------------------------------------------------
+       ELEMENTS + STATE
+    ------------------------------------------------------- */
+
+    const carousel =
+      homeReviewsList.querySelector(".review-carousel");
+
+    const track =
+      homeReviewsList.querySelector(".review-carousel-track");
+
+    const allSlides =
+      homeReviewsList.querySelectorAll(".review-slide");
+
+    const dots =
+      homeReviewsList.querySelectorAll(".review-carousel-dot");
+
+    let position = 0;       /* 0 .. total (total = the clone of card 1) */
+    let slideStep = 0;      /* px moved per slide                        */
+    let autoRotate = null;
+    let isHovering = false;
+    let lastWidth = 0;
+
+
+    /* -------------------------------------------------------
+       LAYOUT – measured from the REAL width of .review-carousel
+    ------------------------------------------------------- */
+
+    function getVisibleCards() {
+
+      const wanted =
+        window.matchMedia(MOBILE_QUERY).matches ? 1 : MAX_VISIBLE;
+
+      return Math.min(wanted, total);
+
+    }
+
+
+    function setTransform(animate) {
+
+      if (!animate) {
+        track.style.transition = "none";
+      }
+
+      track.style.transform =
+        "translate3d(" + (-position * slideStep) + "px, 0, 0)";
+
+      if (!animate) {
+        void track.offsetWidth;          /* apply without animation */
+        track.style.transition = "";
+      }
+
+    }
+
+
+    function layout() {
+
+      const visible = getVisibleCards();
+
+      /* the gap is the slide's right padding (from the CSS) */
+      const gap =
+        parseFloat(
+          window.getComputedStyle(allSlides[0]).paddingRight
+        ) || 0;
+
+      const width = carousel.getBoundingClientRect().width;
+
+      lastWidth = width;
+
+      /* visible cards + (visible - 1) gaps  =  container width */
+      slideStep = (width + gap) / visible;
+
+      carousel.style.setProperty("--slide-w", slideStep + "px");
+
+      setTransform(false);
+
+    }
+
+
+    /* -------------------------------------------------------
+       DOTS
+    ------------------------------------------------------- */
+
+    function updateDots() {
+
+      const activeIndex = position % total;
+
+      dots.forEach(function (dot, dotIndex) {
+
+        dot.classList.toggle("active", dotIndex === activeIndex);
+
+      });
+
+    }
+
+
+    /* -------------------------------------------------------
+       MOVEMENT
+    ------------------------------------------------------- */
+
+    function nextReview() {
+
+      if (position >= total) {           /* safety: still on the clone */
+        position = 0;
+        setTransform(false);
+      }
+
+      position += 1;
+      setTransform(true);
+      updateDots();
+
+    }
+
+
+    function goToReview(index) {
+
+      if (position >= total) {
+        position = 0;
+        setTransform(false);
+      }
+
+      position = index;
+      setTransform(true);
+      updateDots();
+
+    }
+
+
+    /* When we have slid onto the clone of card 1, jump back to the real
+       card 1 with no animation (looks identical, so no visible jump). */
+    track.addEventListener("transitionend", function (event) {
+
+      if (event.target !== track ||
+          event.propertyName !== "transform") {
+        return;
+      }
+
+      if (position >= total) {
+        position = 0;
+        setTransform(false);
+      }
+
+    });
+
+
+    /* -------------------------------------------------------
+       AUTO ROTATION
+    ------------------------------------------------------- */
+
+    function stopAutoRotate() {
+
+      if (autoRotate) {
+
+        clearInterval(autoRotate);
+        autoRotate = null;
+
+      }
+
+    }
+
+
+    function startAutoRotate() {
+
+      stopAutoRotate();
+
+      if (total > 1 && !isHovering) {
+
+        autoRotate = setInterval(nextReview, SLIDE_DELAY);
+
+      }
+
+    }
+
+
+    /* -------------------------------------------------------
+       DOT CONTROLS
+    ------------------------------------------------------- */
+
+    dots.forEach(function (dot) {
+
+      dot.addEventListener("click", function () {
+
+        goToReview(Number(dot.dataset.reviewIndex));
+        startAutoRotate();
+
+      });
+
+    });
+
+
+    /* -------------------------------------------------------
+       PAUSE ON HOVER (mouse only, so phones never get stuck)
+    ------------------------------------------------------- */
+
+    homeReviewsList.addEventListener("pointerenter", function (event) {
+
+      if (event.pointerType !== "mouse") return;
+
+      isHovering = true;
+      stopAutoRotate();
+
+    });
+
+    homeReviewsList.addEventListener("pointerleave", function (event) {
+
+      if (event.pointerType !== "mouse") return;
+
+      isHovering = false;
+      startAutoRotate();
+
+    });
+
+
+    /* -------------------------------------------------------
+       KEEP WIDTHS CORRECT WHEN THE CONTAINER CHANGES SIZE
+    ------------------------------------------------------- */
+
+    if ("ResizeObserver" in window) {
+
+      new ResizeObserver(function () {
+
+        if (carousel.getBoundingClientRect().width !== lastWidth) {
+          layout();
+        }
+
+      }).observe(carousel);
+
+    }
+
+    window.addEventListener("resize", layout);
+
+
+    /* -------------------------------------------------------
+       START
+    ------------------------------------------------------- */
+
+    layout();
+    updateDots();
+    startAutoRotate();
+
+  }
+
+}
 
 })();
 
 
-/*These marls are used to make notes, 
+/* These marls are used to make notes, 
 and everything written within the marks 
 will not be read as part of the code 
 so to omit something, use these marks 
 or even // tetx... */
-
-
