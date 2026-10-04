@@ -181,11 +181,11 @@ const BIB_PROMOTIONS = [
     subtitle: "SEE YOUR IDEA BEFORE WE BUILD IT",
     description: "Get a visual design of your idea before the build begins, so you can see how it could work in your space.",
     startDate: "2026-09-14T00:00:00",
-    endDate: "2026-09-20T23:59:59",
+    endDate: "2026-10-20T23:59:59",
     spotsTotal: 5,
     spotsRemaining: 5,
     active: true,
-    image: "assets/images/image6.jpeg",
+    image: "assets/Images/Web/3D-DESIGN.WEBP",
     featured: true, 
     whatsappMessage: "Hi BIB, I'd like to claim the Free 3D Design promotion."
   },
@@ -196,11 +196,11 @@ const BIB_PROMOTIONS = [
     subtitle: "MORE STORAGE. BETTER SPACE.",
     description: "A special BIB offer on selected wardrobe projects. Message us to find out what's included.",
     startDate: "2026-09-14T00:00:00",
-    endDate: "2026-09-21T23:59:59",
+    endDate: "2026-10-21T23:59:59",
     spotsTotal: 5,
     spotsRemaining: 5,
     active: true,
-    image: "assets/images/Kitchen-in-SkyCity-After.webp",
+    image: "assets/Images/Web/SkyCity-2-Kitchen-After.webp",
     featured: false,
     whatsappMessage: "Hi BIB, I'd like to know about the Wardrobe Special."
   }
