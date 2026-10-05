@@ -185,7 +185,7 @@ const BIB_PROMOTIONS = [
     spotsTotal: 5,
     spotsRemaining: 5,
     active: true,
-    image: "assets/Images/Web/3D-DESIGN.WEBP",
+    image: "assets/images/Web/3D-DESIGN.WEBP",
     featured: true, 
     whatsappMessage: "Hi BIB, I'd like to claim the Free 3D Design promotion."
   },
@@ -200,7 +200,7 @@ const BIB_PROMOTIONS = [
     spotsTotal: 5,
     spotsRemaining: 5,
     active: true,
-    image: "assets/Images/Web/SkyCity-2-Kitchen-After.webp",
+    image: "assets/images/Web/SkyCity-2-Kitchen-After.webp",
     featured: false,
     whatsappMessage: "Hi BIB, I'd like to know about the Wardrobe Special."
   }
