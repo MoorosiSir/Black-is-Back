@@ -4,24 +4,49 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Black Is Back Projects | Ideas to Life</title>
-<meta name="description" content="Premium ceiling, tiling and carpentry renovations across Johannesburg and Gauteng. Start Your Projects on WhatsApp." />
+<meta name="description" content="Kitchens, wardrobes, custom furniture, ceilings and finishes — planned, designed and built by Black Is Back Projects across Johannesburg and Gauteng." />
+<!-- seo:start -->
+<link rel="canonical" href="https://bibprojects.co.za/" />
+<link rel="icon" href="favicon.ico" sizes="48x48" />
+<link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png" />
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" />
+<link rel="manifest" href="site.webmanifest" />
+<meta name="theme-color" content="#0a0f0c" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Black Is Back Projects" />
+<meta property="og:locale" content="en_ZA" />
+<meta property="og:title" content="Black Is Back Projects | Ideas to Life" />
+<meta property="og:description" content="Kitchens, wardrobes, custom furniture, ceilings and finishes — planned, designed and built by Black Is Back Projects across Johannesburg and Gauteng." />
+<meta property="og:url" content="https://bibprojects.co.za/" />
+<meta property="og:image" content="https://bibprojects.co.za/assets/share/og-image.jpg" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Black Is Back Projects — kitchens, wardrobes, custom furniture and finishes across Johannesburg and Gauteng" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Black Is Back Projects | Ideas to Life" />
+<meta name="twitter:description" content="Kitchens, wardrobes, custom furniture, ceilings and finishes — planned, designed and built by Black Is Back Projects across Johannesburg and Gauteng." />
+<meta name="twitter:image" content="https://bibprojects.co.za/assets/share/og-image.jpg" />
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "HomeAndConstructionBusiness", "name": "Black Is Back Projects", "alternateName": "BIB", "url": "https://bibprojects.co.za/", "logo": "https://bibprojects.co.za/assets/icons/icon-512.png", "image": "https://bibprojects.co.za/assets/icons/icon-512.png", "description": "Kitchens, wardrobes, custom furniture, ceilings and finishes — planned, designed and built by Black Is Back Projects across Johannesburg and Gauteng.", "telephone": ["+27636377014", "+27739972386"], "areaServed": [{"@type": "AdministrativeArea", "name": "Gauteng"}, {"@type": "City", "name": "Johannesburg"}], "sameAs": ["https://www.facebook.com/share/17CYVTUjQw/", "https://www.tiktok.com/@black_is_back_projects"]}</script>
+<!-- seo:end -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
+<a class="skip-link" href="#main">Skip To Content</a>
+
 
 <header class="site-nav">
   <div class="wrap nav-inner">
 
    <a href="index.html" class="logo">
-     <img src="assets/logos/BIB_Logo_Color_On_Black.webp" alt="Black Is Back logo">
+     <img src="assets/logos/BIB_Logo_Color_On_Black-192.webp" alt="Black Is Back logo">
      BLACK IS <em>BACK</em>
    </a>
 
-    <nav class="nav-links">
-      <a href="index.html" data-nav="index.html">Home</a>
+    <nav class="nav-links" aria-label="Main">
       <a href="services.html" data-nav="services.html">Services</a>
       <a href="promotions.html" data-nav="promotions.html">Promotions</a>
       <a href="gallery.html" data-nav="gallery.html">Gallery</a>
@@ -35,16 +60,19 @@
     <a
       href="https://wa.me/27636377014?text=Hi%2C%20I%27d%20like%20to%20start%20a%20project"
       class="btn btn-primary nav-cta-desktop"
-      target="_blank"
+      target="_blank" rel="noopener noreferrer"
     >
       Start A Project
-    </a>
+    <span class="sr-only"> (opens in a new tab)</span></a>
 
     <button
+      type="button"
       class="burger"
       id="burger"
       onclick="toggleDrawer()"
       aria-label="Menu"
+      aria-controls="mobileDrawer"
+      aria-expanded="false"
     >
       <span></span>
       <span></span>
@@ -55,8 +83,8 @@
 
 </header>
 
-<div class="mobile-drawer" id="mobileDrawer">
-  <nav>
+<div class="mobile-drawer" id="mobileDrawer" aria-hidden="true" inert>
+  <nav aria-label="Mobile menu">
     <a href="index.html" data-nav="index.html"><span>Home</span><span class="mark">01</span></a>
     <a href="services.html" data-nav="services.html"><span>Services</span><span class="mark">02</span></a>
     <a href="promotions.html" data-nav="promotions.html"><span>Promotions</span><span class="mark">03</span></a>
@@ -67,17 +95,18 @@
     <a href="partnerships.html" data-nav="partnerships.html"><span>Partnerships</span><span class="mark">08</span></a>
     <a href="contact.html" data-nav="contact.html"><span>Contact</span><span class="mark">09</span></a>
     <!--
-    <a href="https://wa.me/27636377014?text=Hi%2C%20I%27d%20like%20a%20free%20quote" class="btn btn-primary btn-block drawer-cta" target="_blank"><i class="fab fa-whatsapp"></i> Start Your Project</a>
+    <a href="https://wa.me/27636377014?text=Hi%2C%20I%27d%20like%20a%20free%20quote" class="btn btn-primary btn-block drawer-cta" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i> Start Your Project<span class="sr-only"> (opens in a new tab)</span></a>
     -->
 
     <div class="drawer-contact">
-      <a href="tel:+27636377014"><i class="fas fa-phone"></i> 063 637 7014</a>
-      <a href="https://wa.me/27636377014" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+      <a href="tel:+27636377014"><i class="fas fa-phone" aria-hidden="true"></i> 063 637 7014</a>
+      <a href="https://wa.me/27636377014" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp Us<span class="sr-only"> (opens in a new tab)</span></a>
     </div>
   </nav>
 </div>
 
 <!-- ═══ HERO ═══ -->
+<main id="main" tabindex="-1">
 <section class="hero">
   <div class="hero-grid"></div>
   <div class="wrap hero-inner">
@@ -87,10 +116,10 @@
         Johannesburg &amp; Gauteng
       </div>
       <h1 class="h-display hero-title reveal">YOUR IDEA,<br><em>DESIGNED FOR YOUR SPACE.</em> <br>BUILT BY BIB</h1>
-      <p class="lede hero-sub reveal">We help homeowners turn ideas into practical, beautiful spaces — planned, designed and built around the way you live</p>
+      <p class="lede hero-sub reveal">We help homeowners turn ideas into practical, beautiful spaces — planned, designed and built around the way you live.</p>
       <div class="btn-row reveal">
-        <a href="https://wa.me/27636377014?text=Hi%2C%20I%27d%20like%20a%20free%20quote" class="btn btn-primary btn-block" target="_blank"><i class="fab fa-whatsapp"></i> Start Your Project</a>
-        <a href="gallery.html" class="btn btn-outline btn-block"><i class="fas fa-images"></i> View Our Work</a>
+        <a href="https://wa.me/27636377014?text=Hi%2C%20I%27d%20like%20a%20free%20quote" class="btn btn-primary btn-block" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i> Start Your Project<span class="sr-only"> (opens in a new tab)</span></a>
+        <a href="gallery.html" class="btn btn-outline btn-block"><i class="fas fa-images" aria-hidden="true"></i> View Our Work</a>
       </div>
     </div>
     <div class="hero-right reveal">
@@ -137,10 +166,10 @@
 <div class="band trust-strip">
   <div class="wrap">
     <span class="label">BRINGING IDEAS TO LIFE</span>
-    <span class="trust-item"><i class="fas fa-check"></i> YOUR IDEA MATTERS</span>
-    <span class="trust-item"><i class="fas fa-check"></i> DESIGNED FOR YOUR SPACE</span>
-    <span class="trust-item"><i class="fas fa-check"></i> CLEAR FROM START TO FINISH</span>
-    <span class="trust-item"><i class="fas fa-check"></i> STRAIGHT. LEVEL. CLEAN.</span>
+    <span class="trust-item"><i class="fas fa-circle-check" aria-hidden="true"></i> YOUR IDEA MATTERS</span>
+    <span class="trust-item"><i class="fas fa-circle-check" aria-hidden="true"></i> DESIGNED FOR YOUR SPACE</span>
+    <span class="trust-item"><i class="fas fa-circle-check" aria-hidden="true"></i> CLEAR FROM START TO FINISH</span>
+    <span class="trust-item"><i class="fas fa-circle-check" aria-hidden="true"></i> STRAIGHT | LEVEL | CLEAN</span>
   </div>
 </div>
 
@@ -153,7 +182,7 @@
       FROM <em>IDEA</em><br>TO REAL SPACE
     </h2>
 
-    <p class="lede-lg reveal" style="margin-bottom:2rem">
+    <p class="lede-lg reveal mb-2">
       Whether you're planning a new kitchen, upgrading a bedroom or creating something custom, we help you plan, design and build a space that works for you.
     </p>
 
@@ -188,7 +217,7 @@
 
     </div>
 
-    <div class="center" style="margin-top:2.4rem">
+    <div class="center mt-2-5">
       <a href="services.html" class="btn btn-outline">
         See All Solutions →
       </a>
@@ -209,7 +238,7 @@
 
     <div id="homePromotionCard" class="reveal"></div>
 
-    <div class="center" style="margin-top:2rem">
+    <div class="center mt-2">
       <a href="promotions.html" class="btn btn-outline">
         See All Promotions →
       </a>
@@ -220,18 +249,18 @@
 
 
 <!-- ═══ REFERRAL TEASER ═══ -->
-<div class="band">
-  <div class="wrap section-tight center">
-    <div class="eyebrow reveal" style="justify-content:center">
-      <span>Referral Program</span>
+<section class="band section-tight">
+  <div class="wrap center">
+    <div class="eyebrow reveal justify-center">
+      <span>Referral Programme</span>
     </div>
 
     <h2 class="h-section reveal">
       KNOW SOMEONE<br>WITH A <em>PROJECT?</em>
     </h2>
 
-    <p class="lede-lg reveal" style="margin:1rem auto 1.8rem">
-      Refer someone to BIB and earn a reward when their project goes ahead. 
+    <p class="lede-lg reveal mt-1 mx-auto mb-2">
+      Refer someone to BIB and earn a reward when their project is completed and paid. 
       The bigger the project, the bigger your reward.
     </p>
 
@@ -239,7 +268,7 @@
       See How Referrals Work →
     </a>
   </div>
-</div>
+</section>
 
 
 <!-- ═══ REVIEWS PREVIEW ═══ -->
@@ -255,19 +284,18 @@
       <em>JUDGED BY THE RESULT.</em>
     </h2>
 
-    <p class="lede-lg reveal" style="margin-bottom:2rem">
+    <p class="lede-lg reveal mb-2">
       The best way to understand our work is through the people we've worked with.
     </p>
 
     <div
-  class="review-grid reveal"
+  class="review-grid reveal mt-2"
   id="homeReviewsList"
-  style="margin-top:2rem"
 >
   <!-- REVIEWS WILL BE ADDED HERE BY main.js -->
 </div>
 
-    <div class="center" style="margin-top:2.4rem">
+    <div class="center mt-2-5">
       <a href="reviews.html" class="btn btn-outline">
         Read All Reviews →
       </a>
@@ -280,21 +308,21 @@
 <!-- ═══ GALLERY PREVIEW ═══ -->
 <section class="section band-alt">
   <div class="wrap center">
-    <div class="eyebrow reveal" style="justify-content:center"><span>Recent Work</span></div>
+    <div class="eyebrow reveal justify-center"><span>Recent Work</span></div>
     <h2 class="h-section reveal">IDEAS <em>MADE REAL</em></h2>
 
-    <p class="lede-lg reveal" style="margin:1rem auto 2rem">
+    <p class="lede-lg reveal mt-1 mx-auto mb-2">
       Take a look at some of the spaces we've helped bring to life.
     </p>
 
-    <div class="gallery-grid reveal" style="margin-top:2rem">
-      <div class="gallery-item"><img src="assets/images/web/SkyCity-1-Kitchen-After-2.webp" alt="  CUSTOM KITCHEN UNITS IN SKY CITY" loading="lazy"></div>
-      <div class="gallery-item"><img src="assets/images/web/SkyCity-2-Kitchen-2-After.webp" alt="  CUSTOM KITCHEN UNITS IN SKY CITY" loading="lazy"></div>
-      <div class="gallery-item"><img src="assets/images/web/OrangeFarms-Bed2.webp" alt="  CUSTOM KIDS BED IN ORANGE FARMS" loading="lazy"></div>
-      <div class="gallery-item"><img src="assets/images/web/EvatonWest-Ceiling-After.webp" alt="  CUSTOM CEILING PROJECT IN EVATON WEST" loading="lazy"></div>
+    <div class="gallery-grid reveal mt-2">
+      <div class="gallery-item"><img src="assets/images/web/SkyCity-1-Kitchen-After-2.webp" alt="Custom kitchen units in Sky City" loading="lazy"></div>
+      <div class="gallery-item"><img src="assets/images/web/SkyCity-2-Kitchen-2-After.webp" alt="Custom kitchen units in Sky City" loading="lazy"></div>
+      <div class="gallery-item"><img src="assets/images/web/OrangeFarms-Bed2.webp" alt="Custom kids bed in Orange Farms" loading="lazy"></div>
+      <div class="gallery-item"><img src="assets/images/web/EvatonWest-Ceiling-After.webp" alt="Custom ceiling project in Evaton West" loading="lazy"></div>
       
     </div>
-    <div style="margin-top:2.4rem">
+    <div class="mt-2-5">
       <a href="gallery.html" class="btn btn-outline">See Full Gallery →</a>
     </div>
   </div>
@@ -305,25 +333,27 @@
   <div class="wrap">
     <h2 class="h-section">HAVE AN IDEA?<br>LET'S BRING IT TO LIFE.</h2>
     <p>Tell us what you have in mind. We'll help you plan it, design it and bring it into your space.</p>
-    <a href="https://wa.me/27636377014?text=Hi%20BIB%2C%20I%20have%20an%20idea%20for%20my%20space%20and%20I%27d%20like%20to%20discuss%20it." class="btn btn-dark" target="_blank"><i class="fab fa-whatsapp"></i> Start Your Project</a>
+    <a href="https://wa.me/27636377014?text=Hi%20BIB%2C%20I%20have%20an%20idea%20for%20my%20space%20and%20I%27d%20like%20to%20discuss%20it." class="btn btn-dark" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i> Start Your Project<span class="sr-only"> (opens in a new tab)</span></a>
   </div>
 </div>
+
+</main>
 
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-cols">
       <div class="footer-brand">
-        <a href="index.html" class="logo"> <img src="assets/logos/BIB_Logo_Color_On_Black.webp" alt="Black Is Back logo"> BLACK IS <em>BACK</em> </a>
+        <a href="index.html" class="logo"> <img src="assets/logos/BIB_Logo_Color_On_Black-192.webp" alt="Black Is Back logo"> BLACK IS <em>BACK</em> </a>
         <p>We help homeowners turn ideas into practical, beautiful spaces — planned, designed and built around the way you live.</p>
         <div class="social-row">
-          <a href="https://www.facebook.com/share/17CYVTUjQw/" target="_blank" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.tiktok.com/@black_is_back_projects" target="_blank" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-          <a href="https://wa.me/27636377014" target="_blank" class="social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://www.facebook.com/share/17CYVTUjQw/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook (opens in a new tab)"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+          <a href="https://www.tiktok.com/@black_is_back_projects" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="TikTok (opens in a new tab)"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
+          <a href="https://wa.me/27636377014" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WhatsApp (opens in a new tab)"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
         </div>
       </div>
 
       <div class="footer-col">
-        <h5>EXPLORE</h5>
+        <h2>EXPLORE</h2>
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="services.html">Services</a></li>
@@ -338,7 +368,7 @@
       </div>
 
       <div class="footer-col">
-        <h5>WHAT WE BUILDd</h5>
+        <h2>WHAT WE BUILD</h2>
         <ul>
           <li><a href="services.html">Kitchen Units</a></li>
           <li><a href="services.html">Bedroom Units</a></li>
@@ -350,11 +380,11 @@
       </div>
 
       <div class="footer-col">
-        <h5>GET IN TOUCH</h5>
+        <h2>GET IN TOUCH</h2>
         <ul>
           <li><a href="tel:+27636377014">063 637 7014</a></li>
           <li><a href="tel:+27739972386">073 997 2386</a></li>
-          <li><a href="https://wa.me/27636377014" target="_blank">WhatsApp Us</a></li>
+          <li><a href="https://wa.me/27636377014" target="_blank" rel="noopener noreferrer">WhatsApp Us<span class="sr-only"> (opens in a new tab)</span></a></li>
           <li><a>Johannesburg, Gauteng</a></li>
         </ul>
       </div>
@@ -363,22 +393,22 @@
     <div class="footer-bottom">
       <p>&copy; 2026 Black Is Back Projects. All Rights Reserved.</p>
       <p>Straight | Level | Clean</p>
-      <a href="https://www.hmpxstudio.co.za" target="_blank" rel="noopener" class="credit-link">Website by HMPX Studio <i class="fas fa-arrow-right"></i></a>
+      <a href="https://www.hmpxstudio.co.za" target="_blank" rel="noopener" class="credit-link">Website by HMPX Studio <i class="fas fa-arrow-right" aria-hidden="true"></i><span class="sr-only"> (opens in a new tab)</span></a>
     </div>
   </div>
 </footer>
 
 
-<a href="https://wa.me/27636377014?text=Hi%2C%20I%20have%20a%20question" class="wa-float" target="_blank" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+<a href="https://wa.me/27636377014?text=Hi%2C%20I%20have%20a%20question" class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp (opens in a new tab)"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
 
-<div class="lightbox" id="lightbox">
-  <button class="lb-close" onclick="closeLightbox()" aria-label="Close">&times;</button>
-  <button class="lb-nav lb-prev" onclick="lbNav(-1)" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" aria-hidden="true">
+  <button type="button" class="lb-close" onclick="closeLightbox()" aria-label="Close">&times;</button>
+  <button type="button" class="lb-nav lb-prev" onclick="lbNav(-1)" aria-label="Previous image"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
   <div class="lb-stage">
-    <img id="lbImage" src="" alt="" />
+    <img id="lbImage" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" />
     <div class="lb-caption" id="lbCaption"></div>
   </div>
-  <button class="lb-nav lb-next" onclick="lbNav(1)" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+  <button type="button" class="lb-nav lb-next" onclick="lbNav(1)" aria-label="Next image"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
   <div class="lb-counter" id="lbCounter"></div>
 </div>
 

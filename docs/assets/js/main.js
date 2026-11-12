@@ -1,18 +1,37 @@
 /* ── Mobile drawer ── */
 function toggleDrawer() {
-  document.getElementById('burger').classList.toggle('open');
-  document.getElementById('mobileDrawer').classList.toggle('open');
+  const burger = document.getElementById('burger');
+  const drawer = document.getElementById('mobileDrawer');
+  const isOpen = burger.classList.toggle('open');
+  drawer.classList.toggle('open', isOpen);
+  burger.setAttribute('aria-expanded', String(isOpen));
+  drawer.setAttribute('aria-hidden', String(!isOpen));
+  drawer.toggleAttribute('inert', !isOpen);
 }
 function closeDrawer() {
-  document.getElementById('burger').classList.remove('open');
+  const burger = document.getElementById('burger');
+  burger.classList.remove('open');
   document.getElementById('mobileDrawer').classList.remove('open');
+  burger.setAttribute('aria-expanded', 'false');
+  document.getElementById('mobileDrawer').setAttribute('aria-hidden', 'true');
+  document.getElementById('mobileDrawer').setAttribute('inert', '');
 }
+
+/* Escape closes the mobile menu and returns focus to the menu button */
+document.addEventListener('keydown', (e) => {
+  if (e.key !== 'Escape') return;
+  const drawer = document.getElementById('mobileDrawer');
+  if (drawer && drawer.classList.contains('open')) {
+    closeDrawer();
+    document.getElementById('burger')?.focus();
+  }
+});
 
 /* ── Active nav link (desktop + mobile) ── */
 (function markActive() {
   const path = location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('[data-nav]').forEach(a => {
-    if (a.getAttribute('data-nav') === path) a.classList.add('active');
+    if (a.getAttribute('data-nav') === path) { a.classList.add('active'); a.setAttribute('aria-current', 'page'); }
   });
 })();
 
@@ -30,8 +49,18 @@ function closeDrawer() {
 function toggleFaq(btn) {
   const item = btn.parentElement;
   const open = item.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(f => f.classList.remove('open'));
-  if (!open) item.classList.add('open');
+  document.querySelectorAll('.faq-item').forEach(faq => {
+    faq.classList.remove('open');
+    const question = faq.querySelector('.faq-q');
+    question?.setAttribute('aria-expanded', 'false');
+    const answer = question?.nextElementSibling;
+    answer?.setAttribute('aria-hidden', 'true');
+  });
+  if (!open) {
+    item.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+    btn.nextElementSibling?.setAttribute('aria-hidden', 'false');
+  }
 }
 
 /* ── Gallery filter ── */
@@ -40,9 +69,11 @@ function filterGallery(cat, btn) {
 
   document.querySelectorAll('.filter-btn').forEach(b => {
     b.classList.remove('active');
+    b.setAttribute('aria-pressed', 'false');
   });
 
   btn.classList.add('active');
+  btn.setAttribute('aria-pressed', 'true');
 
   document.querySelectorAll('.gallery-project').forEach(project => {
     const projectCat = project.dataset.cat;
@@ -53,83 +84,304 @@ function filterGallery(cat, btn) {
 }
 
 /* ── Lightbox (image zoom viewer) ── */
+
 let lbImages = [];
 let lbIndex = 0;
+let lbGroup = null;
+let lbTrigger = null;
 
-function buildLbImages() {
-  lbImages = Array.from(document.querySelectorAll('.gallery-item img')).map(img => ({
+function buildLbImages(group) {
+  if (!group) return [];
+
+  return Array.from(
+    group.querySelectorAll('.gallery-item img, .mtj-image img')
+  ).map(img => ({
     src: img.getAttribute('src'),
     alt: img.getAttribute('alt') || ''
   }));
 }
 
-function openLightbox(index) {
-  if (!lbImages.length) buildLbImages();
-  if (!lbImages.length) return;
+function openLightbox(index, group, trigger) {
+  if (!group) return;
+
+  const images = buildLbImages(group);
+
+  if (!images.length) return;
+  if (index < 0 || index >= images.length) return;
+
+  lbGroup = group;
+  lbImages = images;
   lbIndex = index;
+  lbTrigger = trigger;
+
   updateLightbox();
-  document.getElementById('lightbox').classList.add('open');
+
+  const lightboxEl = document.getElementById('lightbox');
+  if (!lightboxEl) return;
+
+  lightboxEl.classList.add('open');
+  lightboxEl.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
+  lightboxEl.querySelector('.lb-close')?.focus();
 }
 
 function closeLightbox() {
-  document.getElementById('lightbox').classList.remove('open');
+  const lightboxEl = document.getElementById('lightbox');
+
+  if (lightboxEl) {
+    lightboxEl.classList.remove('open');
+    lightboxEl.setAttribute('aria-hidden', 'true');
+  }
+
   document.body.style.overflow = '';
+  lbTrigger?.focus();
+
+  lbImages = [];
+  lbIndex = 0;
+  lbGroup = null;
+  lbTrigger = null;
 }
 
 function lbNav(dir) {
+  if (!lbImages.length) return;
+
   lbIndex = (lbIndex + dir + lbImages.length) % lbImages.length;
   updateLightbox();
 }
 
 function updateLightbox() {
   const item = lbImages[lbIndex];
+
   const imgEl = document.getElementById('lbImage');
   const capEl = document.getElementById('lbCaption');
   const countEl = document.getElementById('lbCounter');
+
   if (!item || !imgEl) return;
+
   imgEl.src = item.src;
   imgEl.alt = item.alt;
-  capEl.textContent = item.alt;
-  countEl.textContent = `${lbIndex + 1} / ${lbImages.length}`;
+
+  if (capEl) {
+    capEl.textContent = item.alt;
+  }
+
+  if (countEl) {
+    countEl.textContent = `${lbIndex + 1} / ${lbImages.length}`;
+  }
 }
 
-(function initLightbox() {
-  document.addEventListener('DOMContentLoaded', () => {
-    buildLbImages();
-    document.querySelectorAll('.gallery-item').forEach((tile, idx) => {
-      if (!tile.querySelector('img')) return;
-      tile.addEventListener('click', () => {
-        const allTiles = Array.from(document.querySelectorAll('.gallery-item')).filter(t => t.querySelector('img'));
-        const clickedIndex = allTiles.indexOf(tile);
-        openLightbox(clickedIndex);
+function initLightbox() {
+
+  /* ── Homepage gallery ── */
+
+  document.querySelectorAll('.gallery-grid').forEach(gallery => {
+    const items = Array.from(
+      gallery.querySelectorAll('.gallery-item')
+    ).filter(item => item.querySelector('img'));
+
+    items.forEach((item, index) => {
+      const image = item.querySelector('img');
+      item.setAttribute('tabindex', '0');
+      item.setAttribute('role', 'button');
+      item.setAttribute('aria-label', `View image: ${image.alt || 'project photo'}`);
+
+      item.addEventListener('click', () => {
+        openLightbox(index, gallery, item);
+      });
+
+      item.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openLightbox(index, gallery, item);
+        }
       });
     });
-    const lightboxEl = document.getElementById('lightbox');
-    if (lightboxEl) {
-      lightboxEl.addEventListener('click', (e) => {
-        if (e.target === lightboxEl) closeLightbox();
-      });
-    }
-    document.addEventListener('keydown', (e) => {
-      const lb = document.getElementById('lightbox');
-      if (!lb || !lb.classList.contains('open')) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowRight') lbNav(1);
-      if (e.key === 'ArrowLeft') lbNav(-1);
-    });
-    // Touch swipe support
-    let touchStartX = 0;
-    const stage = document.querySelector('.lb-stage');
-    if (stage) {
-      stage.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
-      stage.addEventListener('touchend', (e) => {
-        const dx = e.changedTouches[0].screenX - touchStartX;
-        if (Math.abs(dx) > 40) lbNav(dx < 0 ? 1 : -1);
-      }, { passive: true });
-    }
   });
-})();
+
+  /* ── Gallery projects ── */
+
+  document.querySelectorAll('.gallery-project').forEach(project => {
+
+    const items = Array.from(
+      project.querySelectorAll('.gallery-item')
+    ).filter(item => item.querySelector('img'));
+
+    items.forEach((item, index) => {
+      const image = item.querySelector('img');
+      item.setAttribute('tabindex', '0');
+      item.setAttribute('role', 'button');
+      item.setAttribute('aria-label', `View image: ${image.alt || 'project photo'}`);
+
+      item.addEventListener('click', () => {
+        openLightbox(index, project, item);
+      });
+
+      item.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openLightbox(index, project, item);
+        }
+      });
+
+    });
+
+  });
+
+
+  /* ── More Than The Job stories ── */
+
+  document.querySelectorAll('.mtj-story').forEach(story => {
+
+    const items = Array.from(
+      story.querySelectorAll('.mtj-image')
+    ).filter(item => item.querySelector('img'));
+
+    items.forEach((item, index) => {
+      const image = item.querySelector('img');
+      item.setAttribute('tabindex', '0');
+      item.setAttribute('role', 'button');
+      item.setAttribute('aria-label', `View image: ${image.alt || 'project photo'}`);
+
+      item.addEventListener('click', () => {
+        openLightbox(index, story, item);
+      });
+
+      item.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openLightbox(index, story, item);
+        }
+      });
+
+    });
+
+  });
+
+
+  /* ── Close when clicking the background ── */
+
+  const lightboxEl = document.getElementById('lightbox');
+
+  if (lightboxEl) {
+
+    lightboxEl.addEventListener('click', (e) => {
+
+      if (e.target === lightboxEl) {
+        closeLightbox();
+      }
+
+    });
+
+  }
+
+
+  /* ── Close / navigation buttons ── */
+
+  const closeBtn = document.querySelector('.lb-close');
+  const prevBtn = document.querySelector('.lb-prev');
+  const nextBtn = document.querySelector('.lb-next');
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeLightbox);
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      lbNav(-1);
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      lbNav(1);
+    });
+  }
+
+
+  /* ── Keyboard navigation ── */
+
+  document.addEventListener('keydown', (e) => {
+
+    const lb = document.getElementById('lightbox');
+
+    if (!lb || !lb.classList.contains('open')) return;
+
+    if (e.key === 'Escape') {
+      closeLightbox();
+    }
+
+    if (e.key === 'ArrowRight') {
+      lbNav(1);
+    }
+
+    if (e.key === 'ArrowLeft') {
+      lbNav(-1);
+    }
+
+    if (e.key === 'Tab') {
+      const focusable = Array.from(
+        lb.querySelectorAll('button:not([disabled]), [href], [tabindex]:not([tabindex="-1"])')
+      ).filter(element => element.getClientRects().length > 0);
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+
+  });
+
+
+  /* ── Touch swipe ── */
+
+  let touchStartX = 0;
+
+  const stage = document.querySelector('.lb-stage');
+
+  if (stage) {
+
+    stage.addEventListener(
+      'touchstart',
+      (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      },
+      { passive: true }
+    );
+
+    stage.addEventListener(
+      'touchend',
+      (e) => {
+
+        const touchEndX = e.changedTouches[0].screenX;
+        const dx = touchEndX - touchStartX;
+
+        if (Math.abs(dx) > 40) {
+          lbNav(dx < 0 ? 1 : -1);
+        }
+
+      },
+      { passive: true }
+    );
+
+  }
+
+}
+
+
+/* ── Start Lightbox ── */
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initLightbox);
+} else {
+  initLightbox();
+}
 
 /* ── Contact form -> WhatsApp ── */
 function handleFormSubmit(e) {
@@ -150,8 +402,24 @@ Email: ${email || 'Not provided'}
 What I'm planning: ${service}
 Details: ${details}`);
 
-  document.getElementById('formSuccess').style.display = 'block';
-  setTimeout(() => window.open(`https://wa.me/27636377014?text=${msg}`, '_blank'), 700);
+  const whatsappUrl = `https://wa.me/27636377014?text=${msg}`;
+  const whatsappWindow = window.open(whatsappUrl, '_blank');
+  if (whatsappWindow) whatsappWindow.opener = null;
+  const success = document.getElementById('formSuccess');
+  success.style.display = 'block';
+  success.textContent = whatsappWindow
+    ? 'Your details are ready to send in WhatsApp.'
+    : "WhatsApp didn't open automatically. Continue using this link: ";
+
+  if (!whatsappWindow) {
+    const link = document.createElement('a');
+    link.href = whatsappUrl;
+    link.target = '_blank';
+    link.rel = 'noopener';
+    link.textContent = 'Open WhatsApp';
+    link.setAttribute('aria-label', 'Open WhatsApp (opens in a new tab)');
+    success.append(link);
+  }
 }
 
 /* ── Partnership application form -> WhatsApp ── */
@@ -168,31 +436,49 @@ function handlePartnerFormSubmit(e) {
   const collab = f.querySelector('[name=collab]').value;
   const links = f.querySelector('[name=links]').value;
   const msg = encodeURIComponent(`Hi, I'd like to explore a BIB partnership!\n\nBusiness: ${business}\nContact: ${contact}\nPhone: ${phone}\nEmail: ${email}\nLocation: ${location}\nIndustry: ${industry}\nWhat we offer: ${offer}\nHow we could collaborate: ${collab}\nLinks: ${links}`);
-  document.getElementById('partnerFormSuccess').style.display = 'block';
-  setTimeout(() => window.open(`https://wa.me/27636377014?text=${msg}`, '_blank'), 700);
+  const whatsappUrl = `https://wa.me/27636377014?text=${msg}`;
+  const whatsappWindow = window.open(whatsappUrl, '_blank');
+  if (whatsappWindow) whatsappWindow.opener = null;
+  const success = document.getElementById('partnerFormSuccess');
+  success.style.display = 'block';
+  success.textContent = whatsappWindow
+    ? "Your details are ready to send in WhatsApp. We'll be in touch after you send them."
+    : "WhatsApp didn't open automatically. Continue using this link: ";
+
+  if (!whatsappWindow) {
+    const link = document.createElement('a');
+    link.href = whatsappUrl;
+    link.target = '_blank';
+    link.rel = 'noopener';
+    link.textContent = 'Open WhatsApp';
+    link.setAttribute('aria-label', 'Open WhatsApp (opens in a new tab)');
+    success.append(link);
+  }
 }
 
 /* ── BIB Promotion System ── */
 const BIB_PROMOTIONS = [
-  {
-    id: "free-3d-design",
-    title: "FREE 3D DESIGN",
-    accentWords: ["FREE"],
-    subtitle: "SEE YOUR IDEA BEFORE WE BUILD IT",
-    description: "Get a visual design of your idea before the build begins, so you can see how it could work in your space.",
-    startDate: "2026-09-14T00:00:00",
-    endDate: "2026-10-20T23:59:59",
-    spotsTotal: 5,
-    spotsRemaining: 5,
-    active: true,
-    image: "assets/images/web/3D-DESIGN.WEBP",
-    featured: true, 
-    whatsappMessage: "Hi BIB, I'd like to claim the Free 3D Design promotion."
-  },
+
+    {
+      id: "bib-birthday-month-2026",
+      title: "BIB BIRTHDAY MONTH SPECIAL",
+      accentWords: ["BIRTHDAY", "SPECIAL"],
+      subtitle: "YOUR DREAM SPACE. A BETTER PRICE.",
+      description: "Celebrate with Black Is Back Projects! Enjoy 30% off kitchen labour and up to 50% off custom wardrobe labour. Bring your ideas to life at a better price.",
+      startDate: "2026-11-10T00:00:00",
+      endDate: "2026-12-10T23:59:59",
+      spotsTotal: 5,
+      spotsRemaining: 5,
+      active: true,
+      image: "assets/images/web/BIB-Birthday-Month.webp",
+      featured: true,
+      whatsappMessage: "Hi BIB, I'm interested in the Birthday Month Special. I'd like to enquire about a kitchen or custom wardrobe project."
+    }
+,
   {
     id: "test-wardrobe-offer",
     title: "WARDROBE SPECIAL",
-    accentWords: ["SSPECIAL"],
+    accentWords: ["SPECIAL"],
     subtitle: "MORE STORAGE. BETTER SPACE.",
     description: "A special BIB offer on selected wardrobe projects. Message us to find out what's included.",
     startDate: "2026-09-14T00:00:00",
@@ -200,7 +486,7 @@ const BIB_PROMOTIONS = [
     spotsTotal: 5,
     spotsRemaining: 5,
     active: true,
-    image: "assets/images/web/SkyCity-2-Kitchen-After.webp",
+    image: "assets/images/web/SkyCity-2-kitchen-After.webp",
     featured: false,
     whatsappMessage: "Hi BIB, I'd like to know about the Wardrobe Special."
   }
@@ -348,14 +634,16 @@ function updatePromotionCards() {
   const promotions = getCurrentPromotions();
 
   if (promotions.length === 0) {
+    /* no offers: show one clean centred card, not a cell inside the 3-column card grid */
+    container.classList.remove("card-grid", "services-3");
     container.innerHTML = `
       <div class="promotion-empty">
         <div class="eyebrow"><span>No Active Offers</span></div>
         <h2>NOTHING <em>RUNNING RIGHT NOW</em></h2>
         <p>We don't have a special promotion running at the moment, but you can still talk to us about your project.</p>
         <a href="https://wa.me/27636377014?text=Hi%20BIB%2C%20I'd%20like%20to%20discuss%20a%20project." class="btn btn-primary" target="_blank">
-          <i class="fab fa-whatsapp"></i> Talk To BIB
-        </a>
+          <i class="fab fa-whatsapp" aria-hidden="true"></i> Talk To BIB
+        <span class="sr-only"> (opens in a new tab)</span></a>
       </div>
     `;
     return;
@@ -380,7 +668,7 @@ function updatePromotionCards() {
           ENDING SOON
         </div>
 
-        <h3>${promotion.title}</h3>
+        <h2>${promotion.title}</h2>
         <p>${promotion.subtitle}</p>
         <p>${promotion.description}</p>
 
@@ -396,8 +684,8 @@ function updatePromotionCards() {
         </div>
 
         <a href="https://wa.me/27636377014?text=${encodeURIComponent(promotion.whatsappMessage)}" class="btn btn-primary btn-block" target="_blank">
-          <i class="fab fa-whatsapp"></i> Claim This Offer
-        </a>
+          <i class="fab fa-whatsapp" aria-hidden="true"></i> Claim This Offer
+        <span class="sr-only"> (opens in a new tab)</span></a>
       </div>
     `;
   }).join("");
@@ -466,8 +754,8 @@ function updateHomePromotion() {
         </div>
 
         <a href="https://wa.me/27636377014?text=${encodeURIComponent(promotion.whatsappMessage)}" class="btn btn-primary" target="_blank">
-          <i class="fab fa-whatsapp"></i> Claim This Offer
-        </a>
+          <i class="fab fa-whatsapp" aria-hidden="true"></i> Claim This Offer
+        <span class="sr-only"> (opens in a new tab)</span></a>
       </div>
     </div>
   `;
@@ -509,37 +797,22 @@ updateHomePromotion();
     type: "testimonial",
     project: "Ceiling Project",
     location: "Evaton West",
-    rating: 5,
     text: "Hi, I'm one of the customers who experienced the work of Black Is Back Projects. They're young and ambitious, their work is so perfect. They work with passion and love their work. Big up guys! May God protect your business and may you get bigger and bigger, with more customers. 🔥",
     source: "Direct",
     date: "2025-05-17",
     featured: true
   },
 
-  {
-    name: "Example Client",
-    type: "review",
-    project: "Wardrobe Project",
-    location: "Johannesburg",
-    rating: 5,
-    text: "The work was neat and the final result came together just as planned.",
+    {
+    name: "Gloria",
+    type: "testimonial",
+    project: "Kitchen remake",
+    location: "Drieziek",
+    text: "Hi, The guys worked at my kitchen, they renewed it and it was a smooth and best service. they are respectful and communicte very well. I recommend their service",
     source: "Direct",
-    date: "2026-09-17",
-    featured: true
-  },
-
-  {
-    name: "Another Client",
-    type: "review",
-    project: "Kitchen Project",
-    location: "Sky City",
-    rating: 5,
-    text: "From the first discussion to the finished work, everything was handled with care and attention to detail.",
-    source: "Direct",
-    date: "2026-09-20",
+    date: "2025-07-28",
     featured: true
   }
-
 ];
 
 
@@ -618,7 +891,7 @@ updateHomePromotion();
       <article class="review-card">
 
         ${stars ? `
-          <div class="stars" style="color:#D4AF37">
+          <div class="stars">
             ${stars}
           </div>
         ` : ""}
@@ -701,13 +974,23 @@ updateHomePromotion();
 
     }
 
-
     /* Calculate rating */
 
     const ratedReviews =
       window.BIB_REVIEWS.filter(function (review) {
         return Number(review.rating) > 0;
       });
+
+    if (ratedReviews.length === 0) {
+      if (reviewAverage) reviewAverage.textContent = "—";
+      if (reviewAverageStars) reviewAverageStars.textContent = "";
+      if (reviewCount) {
+        reviewCount.textContent =
+          window.BIB_REVIEWS.length === 1
+            ? "1 client testimonial"
+            : window.BIB_REVIEWS.length + " client testimonials";
+      }
+    }
 
 
     if (ratedReviews.length > 0) {
@@ -831,7 +1114,7 @@ if (homeReviewsList) {
 
     homeReviewsList.innerHTML = `
 
-      <div class="review-carousel">
+      <div class="review-carousel" role="region" aria-roledescription="carousel" aria-label="Client reviews">
 
         <div class="review-carousel-track">
           ${slidesHTML}
@@ -879,6 +1162,7 @@ if (homeReviewsList) {
     let slideStep = 0;      /* px moved per slide                        */
     let autoRotate = null;
     let isHovering = false;
+    let focusWithin = false;
     let lastWidth = 0;
 
 
@@ -948,6 +1232,7 @@ if (homeReviewsList) {
       dots.forEach(function (dot, dotIndex) {
 
         dot.classList.toggle("active", dotIndex === activeIndex);
+        if (dotIndex === activeIndex) { dot.setAttribute("aria-current", "true"); } else { dot.removeAttribute("aria-current"); }
 
       });
 
@@ -1023,7 +1308,10 @@ if (homeReviewsList) {
 
       stopAutoRotate();
 
-      if (total > 1 && !isHovering) {
+      if (total > 1 &&
+          !isHovering &&
+          !focusWithin &&
+          !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 
         autoRotate = setInterval(nextReview, SLIDE_DELAY);
 
@@ -1058,6 +1346,23 @@ if (homeReviewsList) {
 
       isHovering = true;
       stopAutoRotate();
+
+    });
+
+    /* Keyboard users: pause while focus is inside the reviews, resume when it leaves */
+    homeReviewsList.addEventListener("focusin", function () {
+
+      focusWithin = true;
+      stopAutoRotate();
+
+    });
+
+    homeReviewsList.addEventListener("focusout", function (event) {
+
+      if (homeReviewsList.contains(event.relatedTarget)) return;
+
+      focusWithin = false;
+      startAutoRotate();
 
     });
 

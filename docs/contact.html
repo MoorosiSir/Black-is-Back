@@ -3,25 +3,49 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Contact — Black Is Back Projects</title>
-<meta name="description" content="Get a free renovation quote from Black Is Back Projects. Call, WhatsApp, or send your project details online." />
+<title>Contact | Black Is Back Projects</title>
+<meta name="description" content="Tell Black Is Back Projects about your kitchen, wardrobe, furniture or renovation idea. Call, WhatsApp or send your details online and we'll respond promptly." />
+<!-- seo:start -->
+<link rel="canonical" href="https://bibprojects.co.za/contact.html" />
+<link rel="icon" href="favicon.ico" sizes="48x48" />
+<link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png" />
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" />
+<link rel="manifest" href="site.webmanifest" />
+<meta name="theme-color" content="#0a0f0c" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Black Is Back Projects" />
+<meta property="og:locale" content="en_ZA" />
+<meta property="og:title" content="Contact | Black Is Back Projects" />
+<meta property="og:description" content="Tell Black Is Back Projects about your kitchen, wardrobe, furniture or renovation idea. Call, WhatsApp or send your details online and we'll respond promptly." />
+<meta property="og:url" content="https://bibprojects.co.za/contact.html" />
+<meta property="og:image" content="https://bibprojects.co.za/assets/share/og-image.jpg" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Black Is Back Projects — kitchens, wardrobes, custom furniture and finishes across Johannesburg and Gauteng" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Contact | Black Is Back Projects" />
+<meta name="twitter:description" content="Tell Black Is Back Projects about your kitchen, wardrobe, furniture or renovation idea. Call, WhatsApp or send your details online and we'll respond promptly." />
+<meta name="twitter:image" content="https://bibprojects.co.za/assets/share/og-image.jpg" />
+<!-- seo:end -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
+<a class="skip-link" href="#main">Skip To Content</a>
+
 
 <header class="site-nav">
   <div class="wrap nav-inner">
 
    <a href="index.html" class="logo">
-     <img src="assets/logos/BIB_Logo_Color_On_Black.webp" alt="Black Is Back logo">
+     <img src="assets/logos/BIB_Logo_Color_On_Black-192.webp" alt="Black Is Back logo">
      BLACK IS <em>BACK</em>
    </a>
 
-    <nav class="nav-links">
-      <a href="index.html" data-nav="index.html">Home</a>
+    <nav class="nav-links" aria-label="Main">
       <a href="services.html" data-nav="services.html">Services</a>
       <a href="promotions.html" data-nav="promotions.html">Promotions</a>
       <a href="gallery.html" data-nav="gallery.html">Gallery</a>
@@ -35,16 +59,19 @@
     <a
       href="https://wa.me/27636377014?text=Hi%2C%20I%27d%20like%20to%20start%20a%20project"
       class="btn btn-primary nav-cta-desktop"
-      target="_blank"
+      target="_blank" rel="noopener noreferrer"
     >
       Start A Project
-    </a>
+    <span class="sr-only"> (opens in a new tab)</span></a>
 
     <button
+      type="button"
       class="burger"
       id="burger"
       onclick="toggleDrawer()"
       aria-label="Menu"
+      aria-controls="mobileDrawer"
+      aria-expanded="false"
     >
       <span></span>
       <span></span>
@@ -55,8 +82,8 @@
 
 </header>
 
-<div class="mobile-drawer" id="mobileDrawer">
-  <nav>
+<div class="mobile-drawer" id="mobileDrawer" aria-hidden="true" inert>
+  <nav aria-label="Mobile menu">
     <a href="index.html" data-nav="index.html"><span>Home</span><span class="mark">01</span></a>
     <a href="services.html" data-nav="services.html"><span>Services</span><span class="mark">02</span></a>
     <a href="promotions.html" data-nav="promotions.html"><span>Promotions</span><span class="mark">03</span></a>
@@ -67,110 +94,101 @@
     <a href="partnerships.html" data-nav="partnerships.html"><span>Partnerships</span><span class="mark">08</span></a>
     <a href="contact.html" data-nav="contact.html"><span>Contact</span><span class="mark">09</span></a>
     <!--
-    <a href="https://wa.me/27636377014?text=Hi%2C%20I%27d%20like%20a%20free%20quote" class="btn btn-primary btn-block drawer-cta" target="_blank"><i class="fab fa-whatsapp"></i> Start Your Project</a>
+    <a href="https://wa.me/27636377014?text=Hi%2C%20I%27d%20like%20a%20free%20quote" class="btn btn-primary btn-block drawer-cta" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i> Start Your Project<span class="sr-only"> (opens in a new tab)</span></a>
     -->
     <div class="drawer-contact">
-      <a href="tel:+27636377014"><i class="fas fa-phone"></i> 063 637 7014</a>
-      <a href="https://wa.me/27636377014" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+      <a href="tel:+27636377014"><i class="fas fa-phone" aria-hidden="true"></i> 063 637 7014</a>
+      <a href="https://wa.me/27636377014" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp Us<span class="sr-only"> (opens in a new tab)</span></a>
     </div>
   </nav>
 </div>
 
+<main id="main" tabindex="-1">
 <section class="page-hero">
   <div class="wrap">
     <div class="eyebrow reveal"><span>Get In Touch</span></div>
     <h1 class="h-display reveal">LET'S CREATE<br><em>SOMETHING TRUE</em></h1>
-    <p class="lede-lg reveal" style="margin-top:1rem">Ready to transform your space? Reach out via any channel below — we're available 7 days a week and respond promptly.</p>
+    <p class="lede-lg reveal">Ready to transform your space? Reach out via any channel below — we're available 7 days a week and respond promptly.</p>
   </div>
 </section>
 
-<section class="section" style="padding-top:1.5rem">
+<section class="section">
   <div class="wrap contact-grid">
     <div class="contact-left reveal">
       <div class="contact-method">
-        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+        <div class="contact-icon"><i class="fas fa-phone" aria-hidden="true"></i></div>
         <div class="contact-text">
-          <h4>Call Us</h4>
+          <h2>Call Us</h2>
           <a href="tel:+27636377014">063 637 7014</a><br>
           <a href="tel:+27739972386">073 997 2386</a>
         </div>
       </div>
       <div class="contact-method">
-        <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+        <div class="contact-icon"><i class="fab fa-whatsapp" aria-hidden="true"></i></div>
         <div class="contact-text">
-          <h4>WhatsApp</h4>
-          <a href="https://wa.me/27636377014" target="_blank">Chat with BIB</a>
+          <h2>WhatsApp</h2>
+          <a href="https://wa.me/27636377014" target="_blank" rel="noopener noreferrer">Chat With BIB<span class="sr-only"> (opens in a new tab)</span></a>
         </div>
       </div>
       <div class="contact-method">
-        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+        <div class="contact-icon"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></div>
         <div class="contact-text">
-          <h4>Where We Work</h4>
+          <h2>Where We Work</h2>
           <p>Johannesburg and surrounding areas across Gauteng.</p>
         </div>
       </div>
-      <div class="contact-method">
-  <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-  <div class="contact-text">
-    <h4>Where We Work</h4>
-    <p>We work across Johannesburg, the Vaal and surrounding Gauteng areas, including Soweto, Lenasia, Sky City, Golden Gardens, Palm Springs, Sebokeng and Vanderbijlpark.</p>
-  </div>
-</div>
-      <div class="social-row">
-        <a href="https://www.facebook.com/share/17CYVTUjQw/" target="_blank" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.tiktok.com/@black_is_back_projects" target="_blank" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-        <a href="https://wa.me/27636377014" target="_blank" class="social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-      </div>
     </div>
 
-        <div class="contact-right reveal">
-      <h3 class="h-sub" style="margin-bottom:1.6rem;font-size:1.3rem">Tell Us About Your <em style="color:var(--green)">Project</em></h3>
-      <div id="formSuccess" class="form-success">✓ Thanks! Your details are ready to send via WhatsApp.</div>
+    <div class="contact-right reveal">
+      <h2 class="h-sub form-title">Tell Us About Your <em class="text-green">Project</em></h2>
+      <div id="formSuccess" class="form-success" aria-live="polite">Your details are ready to send in WhatsApp.</div>
       <form onsubmit="handleFormSubmit(event)">
         <div class="field-row">
-          <div class="field"><label>First Name</label><input type="text" name="first" placeholder="Your first name" required /></div>
-          <div class="field"><label>Last Name</label><input type="text" name="last" placeholder="Your last name" required /></div>
+          <div class="field"><label for="contactFirst">First Name</label><input id="contactFirst" autocomplete="given-name" type="text" name="first" placeholder="Your first name" required /></div>
+          <div class="field"><label for="contactLast">Last Name</label><input id="contactLast" autocomplete="family-name" type="text" name="last" placeholder="Your last name" required /></div>
         </div>
-        <div class="field"><label>Phone Number</label><input type="tel" name="phone" placeholder="0XX XXX XXXX" required /></div>
-        <div class="field"><label>Email Address <span style="opacity:.6">(Optional)</span></label><input type="email" name="email" placeholder="you@example.com" /></div>
+        <div class="field"><label for="contactPhone">Phone Number</label><input id="contactPhone" autocomplete="tel" type="tel" name="phone" placeholder="0XX XXX XXXX" required /></div>
+        <div class="field"><label for="contactEmail">Email Address <span class="opacity-60">(Optional)</span></label><input id="contactEmail" autocomplete="email" type="email" name="email" placeholder="you@example.com" /></div>
         <div class="field">
-          <label>What Are You Planning?</label>
-          <select name="service" required>
+          <label for="contactService">What Are You Planning?</label>
+          <select id="contactService" name="service" required>
             <option value="" disabled selected>Choose an option</option>
             <option>Kitchen</option>
-            <option>Wardrobe or Bedroom Units</option>
+            <option>Wardrobe Or Bedroom Units</option>
             <option>Custom Furniture</option>
-            <option>Walls or Wall Features</option>
-            <option>Floors or Tiling</option>
+            <option>Walls Or Wall Features</option>
+            <option>Floors Or Tiling</option>
             <option>Ceiling</option>
             <option>Home Improvement</option>
             <option>Something Else</option>
             <option>I'm Not Sure — I Need Help</option>
           </select>
         </div>
-        <div class="field"><label>Tell Us About Your Idea</label><textarea name="details" rows="4" placeholder="Tell us what you have in mind, what you'd like to change, or what you need help with..."></textarea></div>
-        <button type="submit" class="btn btn-primary btn-block"><i class="fab fa-whatsapp"></i> Send via WhatsApp</button>
+        <div class="field"><label for="contactDetails">Tell Us About Your Idea</label><textarea id="contactDetails" name="details" rows="4" placeholder="Tell us what you have in mind, what you'd like to change, or what you need help with..."></textarea></div>
+        <button type="submit" class="btn btn-primary btn-block"><i class="fab fa-whatsapp" aria-hidden="true"></i> Send Via WhatsApp</button>
       </form>
       <p class="form-note">Your details will be prepared and opened in WhatsApp so you can review and send your request directly to BIB.</p>
     </div>
   </div>
 </section>
 
+</main>
+
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-cols">
       <div class="footer-brand">
-        <a href="index.html" class="logo"> <img src="assets/logos/BIB_Logo_Color_On_Black.webp" alt="Black Is Back logo"> BLACK IS <em>BACK</em> </a>
+        <a href="index.html" class="logo"> <img src="assets/logos/BIB_Logo_Color_On_Black-192.webp" alt="Black Is Back logo"> BLACK IS <em>BACK</em> </a>
         <p>We help homeowners turn ideas into practical, beautiful spaces — planned, designed and built around the way you live.</p>
         <div class="social-row">
-          <a href="https://www.facebook.com/share/17CYVTUjQw/" target="_blank" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.tiktok.com/@black_is_back_projects" target="_blank" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-          <a href="https://wa.me/27636377014" target="_blank" class="social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://www.facebook.com/share/17CYVTUjQw/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook (opens in a new tab)"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+          <a href="https://www.tiktok.com/@black_is_back_projects" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="TikTok (opens in a new tab)"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
+          <a href="https://wa.me/27636377014" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WhatsApp (opens in a new tab)"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
         </div>
       </div>
 
       <div class="footer-col">
-        <h5>EXPLORE</h5>
+        <h2>EXPLORE</h2>
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="services.html">Services</a></li>
@@ -185,7 +203,7 @@
       </div>
 
       <div class="footer-col">
-        <h5>WHAT WE BUILDd</h5>
+        <h2>WHAT WE BUILD</h2>
         <ul>
           <li><a href="services.html">Kitchen Units</a></li>
           <li><a href="services.html">Bedroom Units</a></li>
@@ -197,11 +215,11 @@
       </div>
 
       <div class="footer-col">
-        <h5>GET IN TOUCH</h5>
+        <h2>GET IN TOUCH</h2>
         <ul>
           <li><a href="tel:+27636377014">063 637 7014</a></li>
           <li><a href="tel:+27739972386">073 997 2386</a></li>
-          <li><a href="https://wa.me/27636377014" target="_blank">WhatsApp Us</a></li>
+          <li><a href="https://wa.me/27636377014" target="_blank" rel="noopener noreferrer">WhatsApp Us<span class="sr-only"> (opens in a new tab)</span></a></li>
           <li><a>Johannesburg, Gauteng</a></li>
         </ul>
       </div>
@@ -210,12 +228,12 @@
     <div class="footer-bottom">
       <p>&copy; 2026 Black Is Back Projects. All Rights Reserved.</p>
       <p>Straight | Level | Clean</p>
-      <a href="https://www.hmpxstudio.co.za" target="_blank" rel="noopener" class="credit-link">Website by HMPX Studio <i class="fas fa-arrow-right"></i></a>
+      <a href="https://www.hmpxstudio.co.za" target="_blank" rel="noopener" class="credit-link">Website by HMPX Studio <i class="fas fa-arrow-right" aria-hidden="true"></i><span class="sr-only"> (opens in a new tab)</span></a>
     </div>
   </div>
 </footer>
 
-<a href="https://wa.me/27636377014?text=Hi%2C%20I%20have%20a%20question" class="wa-float" target="_blank" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+<a href="https://wa.me/27636377014?text=Hi%2C%20I%20have%20a%20question" class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp (opens in a new tab)"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
 <script src="assets/js/main.js"></script>
 </body>
 </html>

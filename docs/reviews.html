@@ -3,25 +3,49 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Black Is Back Projects | Ideas to Life</title>
-<meta name="description" content="Premium ceiling, tiling and carpentry renovations across Johannesburg and Gauteng. Start Your Projects on WhatsApp." />
+<title>Client Reviews | Black Is Back Projects</title>
+<meta name="description" content="Read client feedback on Black Is Back Projects and share your own experience of our work across Johannesburg and Gauteng." />
+<!-- seo:start -->
+<link rel="canonical" href="https://bibprojects.co.za/reviews.html" />
+<link rel="icon" href="favicon.ico" sizes="48x48" />
+<link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png" />
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" />
+<link rel="manifest" href="site.webmanifest" />
+<meta name="theme-color" content="#0a0f0c" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Black Is Back Projects" />
+<meta property="og:locale" content="en_ZA" />
+<meta property="og:title" content="Client Reviews | Black Is Back Projects" />
+<meta property="og:description" content="Read client feedback on Black Is Back Projects and share your own experience of our work across Johannesburg and Gauteng." />
+<meta property="og:url" content="https://bibprojects.co.za/reviews.html" />
+<meta property="og:image" content="https://bibprojects.co.za/assets/share/og-image.jpg" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Black Is Back Projects — kitchens, wardrobes, custom furniture and finishes across Johannesburg and Gauteng" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Client Reviews | Black Is Back Projects" />
+<meta name="twitter:description" content="Read client feedback on Black Is Back Projects and share your own experience of our work across Johannesburg and Gauteng." />
+<meta name="twitter:image" content="https://bibprojects.co.za/assets/share/og-image.jpg" />
+<!-- seo:end -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
+<a class="skip-link" href="#main">Skip To Content</a>
+
 
 <header class="site-nav">
   <div class="wrap nav-inner">
 
    <a href="index.html" class="logo">
-     <img src="assets/logos/BIB_Logo_Color_On_Black.webp" alt="Black Is Back logo">
+     <img src="assets/logos/BIB_Logo_Color_On_Black-192.webp" alt="Black Is Back logo">
      BLACK IS <em>BACK</em>
    </a>
 
-    <nav class="nav-links">
-      <a href="index.html" data-nav="index.html">Home</a>
+    <nav class="nav-links" aria-label="Main">
       <a href="services.html" data-nav="services.html">Services</a>
       <a href="promotions.html" data-nav="promotions.html">Promotions</a>
       <a href="gallery.html" data-nav="gallery.html">Gallery</a>
@@ -35,16 +59,19 @@
     <a
       href="https://wa.me/27636377014?text=Hi%2C%20I%27d%20like%20to%20start%20a%20project"
       class="btn btn-primary nav-cta-desktop"
-      target="_blank"
+      target="_blank" rel="noopener noreferrer"
     >
       Start A Project
-    </a>
+    <span class="sr-only"> (opens in a new tab)</span></a>
 
     <button
+      type="button"
       class="burger"
       id="burger"
       onclick="toggleDrawer()"
       aria-label="Menu"
+      aria-controls="mobileDrawer"
+      aria-expanded="false"
     >
       <span></span>
       <span></span>
@@ -55,8 +82,8 @@
 
 </header>
 
-<div class="mobile-drawer" id="mobileDrawer">
-  <nav>
+<div class="mobile-drawer" id="mobileDrawer" aria-hidden="true" inert>
+  <nav aria-label="Mobile menu">
     <a href="index.html" data-nav="index.html"><span>Home</span><span class="mark">01</span></a>
     <a href="services.html" data-nav="services.html"><span>Services</span><span class="mark">02</span></a>
     <a href="promotions.html" data-nav="promotions.html"><span>Promotions</span><span class="mark">03</span></a>
@@ -67,12 +94,12 @@
     <a href="partnerships.html" data-nav="partnerships.html"><span>Partnerships</span><span class="mark">08</span></a>
     <a href="contact.html" data-nav="contact.html"><span>Contact</span><span class="mark">09</span></a>
     <!--
-    <a href="https://wa.me/27636377014?text=Hi%2C%20I%27d%20like%20a%20free%20quote" class="btn btn-primary btn-block drawer-cta" target="_blank"><i class="fab fa-whatsapp"></i> Start Your Project</a>
+    <a href="https://wa.me/27636377014?text=Hi%2C%20I%27d%20like%20a%20free%20quote" class="btn btn-primary btn-block drawer-cta" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i> Start Your Project<span class="sr-only"> (opens in a new tab)</span></a>
     -->
 
     <div class="drawer-contact">
-      <a href="tel:+27636377014"><i class="fas fa-phone"></i> 063 637 7014</a>
-      <a href="https://wa.me/27636377014" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+      <a href="tel:+27636377014"><i class="fas fa-phone" aria-hidden="true"></i> 063 637 7014</a>
+      <a href="https://wa.me/27636377014" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp Us<span class="sr-only"> (opens in a new tab)</span></a>
     </div>
   </nav>
 </div>
@@ -83,6 +110,7 @@
      PAGE HERO
 ========================= -->
 
+<main id="main" tabindex="-1">
 <section class="page-hero">
 
   <div class="wrap">
@@ -98,7 +126,7 @@
     </h1>
 
 
-    <p class="lede-lg reveal" style="margin-top:1rem">
+    <p class="lede-lg reveal">
 
       Every project gives us an opportunity to learn, improve
       and leave a space better than we found it.
@@ -116,7 +144,7 @@
      REVIEWS
 ========================= -->
 
-<section class="section" style="padding-top:0">
+<section class="section">
 
   <div class="wrap">
 
@@ -124,7 +152,7 @@
 
   <div class="num" id="reviewAverage">—</div>
 
-  <div class="stars" id="reviewAverageStars" style="color:#D4AF37">
+  <div class="stars" id="reviewAverageStars">
     ☆☆☆☆☆
   </div>
 
@@ -144,7 +172,7 @@
 
     <div class="reviews-empty reveal" id="reviewsEmpty">
 
-      <h3>WE'RE JUST GETTING STARTED.</h3>
+      <h2>WE'RE JUST GETTING STARTED.</h2>
 
       <p>
         As BIB completes more projects, this page will showcase
@@ -155,8 +183,7 @@
 
 
     <div
-      class="reveal"
-      style="text-align:center;margin-top:3rem"
+      class="reveal center mt-3"
     >
 
       <h2 class="h-section">
@@ -164,8 +191,7 @@
         <em>WITH BIB?</em>
       </h2>
 
-      <p
-        style="max-width:600px;margin:1rem auto 1.5rem;color:var(--muted)"
+      <p class="max-w-md mt-1 mx-auto mb-1-5 text-muted"
       >
         Your experience matters. If we've worked on your space,
         we'd appreciate you taking a moment to share your feedback.
@@ -178,9 +204,9 @@
         target="_blank"
         rel="noopener"
       >
-       <i class="fab fa-google"></i>
-       Leave a Google Review
-      </a>
+       <i class="fab fa-google" aria-hidden="true"></i>
+       Leave A Google Review
+      <span class="sr-only"> (opens in a new tab)</span></a>
 
     </div>
 
@@ -221,14 +247,14 @@
     <a
       href="https://wa.me/27636377014?text=Hi%2C%20I%27d%20like%20to%20discuss%20a%20project%20with%20Black%20Is%20Back%20Projects."
       class="btn btn-dark"
-      target="_blank"
+      target="_blank" rel="noopener noreferrer"
     >
 
-      <i class="fab fa-whatsapp"></i>
+      <i class="fab fa-whatsapp" aria-hidden="true"></i>
 
       Start Your Project
 
-    </a>
+    <span class="sr-only"> (opens in a new tab)</span></a>
 
   </div>
 
@@ -240,21 +266,23 @@
      FOOTER
 ========================= -->
 
+</main>
+
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-cols">
       <div class="footer-brand">
-        <a href="index.html" class="logo"> <img src="assets/logos/BIB_Logo_Color_On_Black.webp" alt="Black Is Back logo"> BLACK IS <em>BACK</em> </a>
+        <a href="index.html" class="logo"> <img src="assets/logos/BIB_Logo_Color_On_Black-192.webp" alt="Black Is Back logo"> BLACK IS <em>BACK</em> </a>
         <p>We help homeowners turn ideas into practical, beautiful spaces — planned, designed and built around the way you live.</p>
         <div class="social-row">
-          <a href="https://www.facebook.com/share/17CYVTUjQw/" target="_blank" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.tiktok.com/@black_is_back_projects" target="_blank" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-          <a href="https://wa.me/27636377014" target="_blank" class="social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://www.facebook.com/share/17CYVTUjQw/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook (opens in a new tab)"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+          <a href="https://www.tiktok.com/@black_is_back_projects" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="TikTok (opens in a new tab)"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
+          <a href="https://wa.me/27636377014" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WhatsApp (opens in a new tab)"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
         </div>
       </div>
 
       <div class="footer-col">
-        <h5>EXPLORE</h5>
+        <h2>EXPLORE</h2>
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="services.html">Services</a></li>
@@ -269,7 +297,7 @@
       </div>
 
       <div class="footer-col">
-        <h5>WHAT WE BUILDd</h5>
+        <h2>WHAT WE BUILD</h2>
         <ul>
           <li><a href="services.html">Kitchen Units</a></li>
           <li><a href="services.html">Bedroom Units</a></li>
@@ -281,11 +309,11 @@
       </div>
 
       <div class="footer-col">
-        <h5>GET IN TOUCH</h5>
+        <h2>GET IN TOUCH</h2>
         <ul>
           <li><a href="tel:+27636377014">063 637 7014</a></li>
           <li><a href="tel:+27739972386">073 997 2386</a></li>
-          <li><a href="https://wa.me/27636377014" target="_blank">WhatsApp Us</a></li>
+          <li><a href="https://wa.me/27636377014" target="_blank" rel="noopener noreferrer">WhatsApp Us<span class="sr-only"> (opens in a new tab)</span></a></li>
           <li><a>Johannesburg, Gauteng</a></li>
         </ul>
       </div>
@@ -294,7 +322,7 @@
     <div class="footer-bottom">
       <p>&copy; 2026 Black Is Back Projects. All Rights Reserved.</p>
       <p>Straight | Level | Clean</p>
-      <a href="https://www.hmpxstudio.co.za" target="_blank" rel="noopener" class="credit-link">Website by HMPX Studio <i class="fas fa-arrow-right"></i></a>
+      <a href="https://www.hmpxstudio.co.za" target="_blank" rel="noopener" class="credit-link">Website by HMPX Studio <i class="fas fa-arrow-right" aria-hidden="true"></i><span class="sr-only"> (opens in a new tab)</span></a>
     </div>
   </div>
 </footer>
@@ -306,11 +334,11 @@
 <a
   href="https://wa.me/27636377014?text=Hi%2C%20I%27d%20like%20to%20discuss%20a%20project%20with%20Black%20Is%20Back%20Projects."
   class="wa-float"
-  target="_blank"
-  aria-label="Chat on WhatsApp"
+  target="_blank" rel="noopener noreferrer"
+  aria-label="Chat on WhatsApp (opens in a new tab)"
 >
 
-  <i class="fab fa-whatsapp"></i>
+  <i class="fab fa-whatsapp" aria-hidden="true"></i>
 
 </a>
 
