@@ -29,7 +29,9 @@ document.addEventListener('keydown', (e) => {
 
 /* ── Active nav link (desktop + mobile) ── */
 (function markActive() {
-  const path = location.pathname.split('/').pop() || 'index.html';
+  const pathParts = location.pathname.split('/').filter(Boolean);
+  let path = pathParts.length ? pathParts[pathParts.length - 1] : 'index.html';
+  if (!path.endsWith('.html')) path += '.html';
   document.querySelectorAll('[data-nav]').forEach(a => {
     if (a.getAttribute('data-nav') === path) { a.classList.add('active'); a.setAttribute('aria-current', 'page'); }
   });
