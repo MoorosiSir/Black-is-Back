@@ -472,7 +472,7 @@ const BIB_PROMOTIONS = [
       spotsTotal: 5,
       spotsRemaining: 5,
       active: true,
-      image: "/assets/images/web/BIB-Birthday-Month.webp",
+      image: "../assets/images/web/BIB-Birthday-Month.webp",
       featured: true,
       whatsappMessage: "Hi BIB, I'm interested in the Birthday Month Special. I'd like to enquire about a kitchen or custom wardrobe project."
     }
@@ -488,7 +488,7 @@ const BIB_PROMOTIONS = [
     spotsTotal: 5,
     spotsRemaining: 5,
     active: true,
-    image: "/assets/images/web/SkyCity-2-kitchen-After.webp",
+    image: "../assets/images/web/SkyCity-2-kitchen-After.webp",
     featured: false,
     whatsappMessage: "Hi BIB, I'd like to know about the Wardrobe Special."
   }
