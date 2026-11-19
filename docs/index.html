@@ -7,6 +7,12 @@
 <meta name="description" content="Kitchens, wardrobes, custom furniture, ceilings and finishes — planned, designed and built by Black Is Back Projects across Johannesburg and Gauteng." />
 <!-- seo:start -->
 <link rel="canonical" href="https://bibprojects.co.za/" />
+<script>
+  // Keep the homepage at / while redirecting the legacy /index.html address.
+  if (window.location.pathname === "/index.html") {
+    window.location.replace("/");
+  }
+</script>
 <link rel="icon" href="favicon.ico" sizes="48x48" />
 <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png" />
 <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" />
